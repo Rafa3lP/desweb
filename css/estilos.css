@@ -1,0 +1,120 @@
+.principal{
+    margin: 10px 100px;
+    border: 1px solid black;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+}
+
+.banner{    
+    margin: auto;
+    flex-grow: 1;
+    margin-left: 5px;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    text-shadow : 2px 2px 2px gray;
+    color: lih
+}
+
+#controles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#botoes > button, form > button{
+    border-radius: 5px;
+    border-color: azure;
+    width: 10rem;
+    height: 4rem;
+    background-color: cadetblue;
+    font-size: 2rem;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+#texto{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    margin: 10px 100px;
+    text-align: justify;
+    line-height: 1.5;
+   
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    margin-top:2rem;
+    justify-content: center;
+}
+
+.card{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5rem;
+    border: 1px solid gainsboro;
+    padding: 10px;
+}
+
+#bt-card{
+    border-radius: 5px;
+    border-color: azure;
+    width: 4rem;
+    height: 2.5rem;
+    background-color: darkgreen;
+    font-size: 1rem;
+    font-weight: bold;
+    color: aliceblue;
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+.texto-card{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    text-align: justify;
+    line-height: 1.5;   
+    display: none;
+}
+#tabulacao{
+    margin-top: 3rem;
+}
+
+#tabela{
+    font-family: Arial, Helvetica, sans-serif;    
+    height: 20rem;
+    margin: auto;
+    text-align: center;
+}
+
+#reset{
+    background-color: lightcoral;
+}
+
+#dados{
+    margin: 20px 20px 20px 40%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+
+input{
+    border-radius: 5px;
+    margin: 10px 0;
+    height: 2rem;
+    font-size: larger;
+}
+
+form > button, p > button{
+    font-size: large;
+    height: 3rem;
+    
+}
+
+

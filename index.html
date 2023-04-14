@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de uso de JS</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" language="javascript"></script>
+</head>
+<body>
+<!-- <body onload="mudarFundo()"> -->
+    <div class="principal">
+        <header>
+                <div class="logo">
+                    <img src="imagens/logo-js.png">
+                </div>
+                <div class="banner">
+                    <p> Página de Uso do JS</p>
+                </div>
+        </header>
+        <section id="controles">
+                <article id="botoes">
+                    <button onclick="mudarFundo()">Fundo</button>
+                    <button onclick="trocarTexto()">Texto</button>
+                    <button onclick="carregarImagem()">Imagem</button>
+                    <button onclick="tabelar()">Tabela</button>
+                    <button id="reset" onclick="resetar()">Resetar</button>
+                </article>            
+                <p id="texto">
+                    JavaScript é uma linguagem de programação que permite a você implementar itens complexos em páginas web — toda vez que uma página da web faz mais do que simplesmente mostrar a você informação estática — mostrando conteúdo que se atualiza em um intervalo de tempo, mapas interativos ou gráficos 2D/3D animados, etc.
+                </p>
+                <hr width="100%" />
+                <img id="imagem" src="" ondblclick="desaparecerImagem()">           
+        </section>
+        <section class="cards">
+             <div class="card">
+                    <img src="imagens/card-img.png">
+                    <button id="bt-card" onclick="ver()">Ver</button>
+                    <p class="texto-card" id="este" ondblclick="esconder()">O que é a programação web?
+                        Linguagem de programação web são usadas propriamente para o desenvolvimento do entendido como camadas de negócio de apresentação, assim como para a construção da lógica de negócios dos websites, portais, e aplicações web de modo geral.
+                    </p>
+             </div>
+        </section>
+        <section id="tabulacao">
+            <table id="tabela">
+                <tr>
+                    <th>Titulo 1</th>
+                    <th>Titulo 2</th>
+                    <th>Titulo 3</th>
+                    <th>Titulo 4</th>
+                </tr>
+                <tr>
+                    <td>Celula 2,1</td>
+                    <td>Celula 2,2</td>
+                    <td>Celula 2,3</td>
+                    <td>Celula 2,4</td>
+                </tr>
+                <tr>
+                    <td>Celula 3,1</td>
+                    <td>Celula 3,2</td>
+                    <td>Celula 3,3</td>
+                    <td>Celula 3,4</td>
+                </tr>
+            </table>
+            <hr>
+            <section id="dados">                
+                <form action="">
+                    <label for="nome">Pesquisar conteúdo:</label><br>
+                    <input type="text" size="30" name="nome" onfocus="destacar()" onblur="limpar()"><br>                    
+                    <button>Pesquisar</button><br>
+                </form>
+            </section>
+            <hr>
+            <section id="dados">                
+                <ul id="lista" align="left">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                    <li>Item 5</li>
+                </ul>
+                <p> <button onclick="manipular()">Manipular</button></p>
+            </section>
+        </section>
+    </div>
+    
+</body>
+</html>
