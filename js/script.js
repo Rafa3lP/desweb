@@ -60,3 +60,15 @@ function manipular() {
     novoItem.appendChild(texto);
     lista.appendChild(novoItem);
 }
+
+function estiloTabela() {
+    const tabela = document.getElementById("tabela");
+    tabela.className = "table";
+}
+
+function removeEstiloTabela() {
+    const tabela = document.getElementById("tabela");
+    //tabela.className = "";
+    tabela.classList.remove("table");
+    tabela.classList.add("table2");
+}

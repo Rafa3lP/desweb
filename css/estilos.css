@@ -117,4 +117,14 @@ form > button, p > button{
     
 }
 
+.table {
+    background-color: aquamarine;
+    width: 70%;
+}
+
+.table2 {
+    background-color: blueviolet;
+    color: white;
+    width: 40%;
+}
 
