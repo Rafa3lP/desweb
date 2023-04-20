@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">    
+    <meta name="theme-color" content="#2196f3">
+    <title>Aula de JQuery</title>   
+    <script src="js/jquery-3.6.4.min.js"></script> 
+    <script src="js/meuScriptJquery.js"></script> 
+    <link rel="stylesheet" type="text/css" href="css/meuCSS.css" />
+  </head>
+  <body>        
+    <h3> Trabalhando com JQuery</h3>
+    <p>
+        jQuery é uma biblioteca de funções em JavaScript que interage com o HTML,
+        desenvolvida para simplificar os scripts interpretados no navegador do usuário (client-side).
+    </p>
+    <br>
+    <a>Produza aqui seu link  >>></a>
+    <input type="text" name="txtlink" size="40"> <button type="button" name="btnlink">Clique para produzir o link </button>
+    <!-- 
+      1. Ao clicar no botão acima, pegue um endereço de site válido (iniciando com wwww ) digitado pelo usuário e monte o link acima.
+      Vc deverá formatar o atributo 'href' do link com o endereço acima (lembrando de colocar o http://) e deixando o texto do link
+      mostrando esse endereço
+    -->
+    <p>
+    <div width="40%" align="center">
+      Com a jQuery possuímos suporte também às CSS3, onde podemos utilizar seletores CSS3 mesmo 
+      que o navegador não tenha suporte a esta folhas de estilo. Isso é possível porque a própria jQuery implementa
+      os seletores CSS3, o que faz com que ela seja independente do navegador em que estiver sendo executada.
+    </div>
+    <!-- 
+      2. Ao passar o mouse no texto acima, aplicar a classe do css 'conteudo' no mesmo.
+      Quando sair do elemento, retirar a classe aplicada acima
+     -->
+    <br>
+    <table border="1" width="30%">
+        <tr>
+            <td>Seletores</td>
+            <td>Eventos</td>
+        </tr>           
+        <tr>
+            <td>Filtros</td>
+            <td>Funções</td>
+        </tr>
+    </table>    
+    <br><button type="button" id="btntabela">Inserir linha</button>    
+    <!-- 
+      3. Ao clicar no botão acima, vc deverá fazer uma copia da ultima linha da tabela acima e inseri-la no final da tabela 
+    -->
+    <br>
+    <ul>
+        <li>O que é a jQuery?</li>
+        <li>Utilidade do jQuery</li>
+        <li>Suporte</li>
+        <li>Instalação</li>
+        <li>Incluindo arquivo jQuery no HTML</li>        
+    </ul>
+    <button type="button" name="btnincluir">Incluir o 3º item no inicio</button>    
+    <!-- 
+      4. Ao clicar no botão acima, vc deverá fazer uma copia do terceiro item da lista acima e inseri-la no inicio da mesma.
+      Além disso, você deverá selecionar os itens que tem o texto 'JQuery' e alterar todo o seu texto por 'Travado pela linguagem!'  
+    -->
+  </body>
+  </html>

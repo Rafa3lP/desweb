@@ -1,0 +1,12 @@
+.conteudo {
+    width: 30%;
+    height: 200px;
+    margin: 0 auto;
+    background: silver;
+    text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0px 40px 10px 70px;
+    padding: 50px 20px 30px 20px;
+    border: 1px solid blue;
+   }
+   
