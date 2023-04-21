@@ -1,0 +1,29 @@
+[
+    {
+        "matricula": "1001",
+        "nome": "João Paulo",
+        "notas": [
+            7.5,
+            8,
+            9.5
+        ]
+    },
+    {
+        "matricula": "1002",
+        "nome": "Maria Joana",
+        "notas": [
+            8,
+            5,
+            10
+        ]
+    },
+    {
+        "matricula": "1003",
+        "nome": "Pedro Paulo",
+        "notas": [
+            5,
+            6,
+            7
+        ]
+    }
+]
