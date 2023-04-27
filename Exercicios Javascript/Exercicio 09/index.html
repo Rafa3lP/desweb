@@ -9,6 +9,25 @@
   </head>
   <body>
     <h1>Exercício 09</h1>
-    
+    <form name="form" onsubmit="return validar(event)">
+      <p>Selecione ao menos uma opcao:</p>
+      <div>
+        <input type="checkbox" id="opcao1" name="grupo" value="opcao1" />
+        <label for="opcao1"> Opção 1 </label>
+      </div>
+      <div>
+        <input type="checkbox" id="opcao2" name="grupo" value="opcao2" />
+        <label for="opcao2"> Opção 2 </label>
+      </div>
+      <div>
+        <input type="checkbox" id="opcao3" name="grupo" value="opcao3" />
+        <label for="opcao3"> Opção 3 </label>
+      </div>
+      <div>
+        <input type="checkbox" id="opcao4" name="grupo" value="opcao4" />
+        <label for="opcao4"> Opção 4 </label>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
   </body>
 </html>

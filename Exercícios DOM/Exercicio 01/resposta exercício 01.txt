@@ -1,0 +1,3 @@
+A – element está apontando para o elemento body, pois é o último filho do elemento document.
+B – O resultado “null” ocorre ao tentar exibir o valor do atributo nodeValue do primeiro nó  com tag h1. H1 é um nó de elemento, portanto, seu nodeValue retornará null. Para o nó de texto que é filho de h1, nodeValue retornaria o valor do texto corretamente.
+C – A variável “filho” está referenciando o primeiro filho do primeiro nó com tag h1, que no caso é um nó de texto com o nodeValue = “Teste de Título”.

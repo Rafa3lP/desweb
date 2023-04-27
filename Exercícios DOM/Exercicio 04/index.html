@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loja virtual</title>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <h1>Boneco do rodrigo</h1>
+    <p>Descrição:</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod tempore
+      dicta praesentium ut ex ipsa minus rem sint sequi nam officia minima,
+      commodi, ipsam numquam sit maiores repudiandae architecto. Totam.
+    </p>
+    <p>Preço: R$ 75,00</p>
+    <form name="form" onsubmit="calcularValor(event)">
+      <label for="qtdParcelas">Qtd. Parcelas: </label>
+      <input
+        type="number"
+        min="1"
+        max="10"
+        name="qtdParcelas"
+        id="qtdParcelas"
+        required
+      />
+      <button type="submit">Calcular valor</button>
+    </form>
+    <p id="valorParcela"></p>
+  </body>
+</html>

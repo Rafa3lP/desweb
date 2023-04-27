@@ -9,6 +9,27 @@
   </head>
   <body>
     <h1>Exercício 08</h1>
-    
+    <form name="formPagina">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo"><br><br>
+      <label for="subtitulo1">Subtítulo 1:</label>
+      <input type="text" id="subtitulo1" name="subtitulo1"><br><br>
+      <label for="subtitulo2">Subtítulo 2:</label>
+      <input type="text" id="subtitulo2" name="subtitulo2"><br><br>
+      <label for="texto1">Texto 1:</label><br>
+      <textarea cols="50" rows="10" id="texto1" name="texto1"></textarea><br><br>
+      <label for="texto2">Texto 2:</label><br>
+      <textarea cols="50" rows="10" id="texto2" name="texto2"></textarea><br><br>
+      <label for="corFundo">Cor de fundo:</label>
+      <input type="color" id="corFundo" name="corFundo" value="#ffffff"><br><br>
+      <label for="corTexto">Cor do texto:</label>
+      <input type="color" id="corTexto" name="corTexto" value="#000000"><br><br>
+      <input type="button" value="Preview" onclick="preview()">
+      <input type="button" value="Gerar Página" onclick="gerarPagina()">
+    </form>
+    <br />
+    <textarea name="result" id="result" cols="100" rows="30">
+
+    </textarea>
   </body>
 </html>

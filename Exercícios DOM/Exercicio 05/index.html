@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de média</title>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <h1>Calcular média</h1>
+    <form name="formAluno" onsubmit="calcularMedia(event)">
+      <label for="nome">Nome do aluno: </label>
+      <input type="text" name="nome" id="nome" required /><br />
+      <label for="nota1">Nota 1: </label>
+      <input
+        type="number"
+        min="0"
+        max="10"
+        step="any"
+        name="nota1"
+        id="nota1"
+        required
+      /><br />
+      <label for="nota2">Nota 2: </label>
+      <input
+        type="number"
+        min="0"
+        max="10"
+        step="any"
+        name="nota2"
+        id="nota2"
+        required
+      /><br />
+      <label for="nota3">Nota 3: </label>
+      <input
+        type="number"
+        min="0"
+        max="10"
+        step="any"
+        name="nota3"
+        id="nota3"
+        required
+      /><br /><br />
+      <button type="submit">Calcular</button>
+    </form>
+    <br />
+    <div id="result"></div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 10</title>
+  </head>
+  <body>
+    <p>No corpo desta página há um parágrafo e uma lista não-ordenada.</p>
+    <ul>
+      <li>Primeiro item da lista</li>
+      <li>Segundo item da lista</li>
+      <li>Terceiro item da lista</li>
+    </ul>
+    <button type="button" onclick="listar()">Listar</button>
+    <br /><br />
+    <label for="novoitem">Inserir novo item: </label><br />
+    <input
+      type="text"
+      name="novoitem"
+      id="novoitem"
+      onfocus="setCorFundo(event, 'lightYellow')"
+      onblur="setCorFundo(event, '')"
+    />
+    <br />
+    <label for="indice">Índice de inserção: </label><br />
+    <input
+      type="text"
+      name="indice"
+      id="indice"
+      onfocus="setCorFundo(event, 'lightYellow')"
+      onblur="setCorFundo(event, '')"
+    /><br /><br />
+    <button type="button" onclick="inserir()">Inserir</button>
+    <div id="msgErro"></div>
+    <script type="text/javascript" src="ex2.js"></script>
+  </body>
+</html>
