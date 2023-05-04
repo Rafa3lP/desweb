@@ -1,0 +1,29 @@
+{
+    "nomeLoja": "Loja DesWeb",
+    "cnpj": "88.575.103/0001-20",
+    "produtos": [
+        {
+            "id": 0,
+            "nome": "Pc Gamer",
+            "precoUnitario": 8990,
+            "qtdEmEstoque": 10
+        },
+        {
+            "id": 1,
+            "nome": "Teclado",
+            "precoUnitario": 120,
+            "qtdEmEstoque": 40
+        },
+        {
+            "id": 2,
+            "nome": "Xícara de café",
+            "precoUnitario": 60,
+            "qtdEmEstoque": 1000
+        }
+    ],
+    "fornecedor": {
+        "codFornecedor": "1000",
+        "nome": "Fornecedor Exemplo",
+        "cidade": "Alegre"
+    }
+}

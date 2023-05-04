@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questao 2</title>
+    <script src="js/script.js"></script>
+    <style>
+      textarea {
+        vertical-align: top;
+      }
+      .formField {
+        width: 500px;
+        padding: 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Questão 2</h1>
+    <form name="userForm" action="registro.html" onsubmit="return validar()">
+      <div class="formField">
+        <label for="usuario">usuário:</label>
+        <input type="text" id="usuario" nome="usuario" size="15" required />
+      </div>
+      <div class="formField">
+        <label for="msNasc">mês e ano de Nascimento:</label>
+        <input type="text" id="mesNasc" nome="mesNasc" size="1" required /> /
+        <input type="text" id="anoNasc" nome="anoNasc" size="4" required />
+      </div>
+      <div class="formField">
+        <label for="senha">senha: </label>
+        <input type="password" id="senha" nome="senha" size="10" required />
+      </div>
+      <div class="formField">
+        <label for="confirmSenha">confirma senha: </label>
+        <input
+          type="password"
+          id="confirmSenha"
+          nome="confirmSenha"
+          size="10"
+          required
+        />
+      </div>
+      <div class="formField">
+        <label for="email">e-mail: </label>
+        <input type="text" id="email" nome="email" size="15" required />
+      </div>
+      <br /><br />
+      <div class="formField">
+        <label for="termos">Termos de uso: </label>
+        <textarea name="termos" id="termos" cols="40" rows="10">
+Aceitação dos termos de Uso e Emendas.A cada vez em que você usar ou acessar esse site, você concorda em submeter-se a estes termos de uso, bem como a suas emendas, feitas de tempos em tempos, com ou sem aviso. Além disso, se você utiliza um serviço específico neste ou através deste site, você estará sujeito a quaisquer</textarea
+        >
+        <div>
+          <input type="checkbox" name="concorda" id="concorda" required />
+          <label for="concorda">Eu concordo com os termos de uso</label>
+        </div>
+      </div>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </body>
+</html>
