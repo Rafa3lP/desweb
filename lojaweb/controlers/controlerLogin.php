@@ -1,5 +1,5 @@
 <?php
-require_once("../dao/conexao.inc");
+require_once("../dao/conexao.inc.php");
 
 function efetuarLogin($login, $senha) {
     $con = new Conexao();
