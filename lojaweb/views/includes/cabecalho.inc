@@ -23,7 +23,7 @@
     </li>
     <li><a href="#">Produtos</a>
             <ul>
-                  <li><a href="views/formProduto.php">Cadastrar</a></li>
+                  <li><a href="formProduto.php">Cadastrar</a></li>
                   <li><a href="#">Cadastrar Vários</a>
                   <li><a href="#">Consultar Todos</a>
                   <li><a href="#">Paginação</a>

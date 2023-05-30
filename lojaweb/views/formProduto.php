@@ -17,11 +17,11 @@ require_once 'includes/cabecalho.inc';
             <input type="text" name="preco" id="preco">
         </div>
         <div class="form-group">
-            <label for="estoque">Preço: </label>
+            <label for="estoque">Estoque: </label>
             <input type="text" name="estoque" id="estoque">
         </div>
         <div class="form-group">
-            <label for="referencia">Preço: </label>
+            <label for="referencia">Referência: </label>
             <input type="text" name="referencia" id="referencia">
         </div>
         <div class="form-group">
@@ -32,10 +32,12 @@ require_once 'includes/cabecalho.inc';
             <label for="dataFabricacao">Data Fabricação: </label>
             <input type="text" name="dataFabricacao" id="dataFabricacao">
         </div>
-        
+
         <input type="hidden" name="opcao" value="1">
 
-        <input type="reset" value="Cancelar" class="btn right"> <input type="submit" value="Cadastrar" class="btn right">
+        <div class="right">
+            <input type="reset" value="Cancelar" class="btn"> <input type="submit" value="Cadastrar" class="btn">
+        </div>
     </form>
 </div>
 <?php
