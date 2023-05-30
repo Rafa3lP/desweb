@@ -20,6 +20,16 @@ if($opcao == 1){
     $produtoDAO->incluirProduto($produto);
 
     header("Location: ../views/exibirProdutos.php");
+} elseif ($opcao == 2){
+    $produtoDAO = new ProdutoDAO();
+
+    $produtos = $produtoDAO->getProdutos();
+
+    session_start();
+
+    $_SESSION["produtos"] = $produtos;
+
+    header("Location: ../views/exibirProdutos.php");
 }
 
 ?>

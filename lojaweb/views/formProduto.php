@@ -26,7 +26,7 @@ require_once 'includes/cabecalho.inc';
         </div>
         <div class="form-group">
             <label for="fabricante">Fabricante: </label>
-            <input type="text" name="fabricante" id="fabricante" value="1000">
+            <input type="text" name="fabricante" id="fabricante" value="1000" readonly>
         </div>
         <div class="form-group">
             <label for="dataFabricacao">Data Fabricação: </label>

@@ -26,5 +26,28 @@ class ProdutoDAO
         $sql->bindValue(':cod_fabricante', $produto->getCodFabricante());
         $sql->execute();
     }
+
+    public function getProdutos()
+    {
+        $rs = $this->conn->query("SELECT * FROM produtos");
+
+        $lista = array();
+        while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
+            $produto = new Produto();
+
+            $produto->setId($row->produto_id);
+            $produto->setCodFabricante($row->cod_fabricante);
+            $produto->setDescricao($row->descricao);
+            $produto->setNome($row->nome);
+            $produto->setDataFabricacao($row->data_fabricacao);
+            $produto->setEstoque($row->estoque);
+            $produto->setPreco($row->preco);
+            $produto->setReferencia($row->referencia);
+
+            $lista[] = $produto;
+        }
+
+        return $lista;
+    }
 }
 ?>
