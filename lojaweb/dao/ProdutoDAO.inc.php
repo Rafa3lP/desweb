@@ -50,6 +50,28 @@ class ProdutoDAO
         return $lista;
     }
 
+    public function getProduto($id)
+    {
+        $sql = $this->conn->prepare("SELECT * FROM produtos WHERE id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+
+        $row = $sql->fetch(PDO::FETCH_OBJ);
+        
+        $produto = new Produto();
+
+        $produto->setId($row->produto_id);
+        $produto->setCodFabricante($row->cod_fabricante);
+        $produto->setDescricao($row->descricao);
+        $produto->setNome($row->nome);
+        $produto->setDataFabricacao($row->data_fabricacao);
+        $produto->setEstoque($row->estoque);
+        $produto->setPreco($row->preco);
+        $produto->setReferencia($row->referencia);
+
+        return $produto;
+    }
+
     public function excluirProduto($id){
         $sql = $this->conn->prepare("DELETE FROM produtos WHERE produto_id = :id");
         $sql->bindValue(':id', $id);

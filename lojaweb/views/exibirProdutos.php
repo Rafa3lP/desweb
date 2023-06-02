@@ -57,7 +57,7 @@ require_once '../utils/utils.inc.php';
                             <?= $produto->getCodFabricante() ?>
                         </td>
                         <td>
-                            <a href="#" class="btn m-1 bg-blue">Alterar</a>
+                            <a href="../controlers/controlerProduto.php?opcao=4&id=<?=$produto->getId()?>" class="btn m-1 bg-blue">Alterar</a>
                             <a href="../controlers/controlerProduto.php?opcao=3&id=<?=$produto->getId()?>" class="btn m-1">Excluir</a>
                         </td>
                     </tr>

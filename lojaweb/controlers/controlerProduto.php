@@ -37,6 +37,20 @@ if($opcao == 1){ // INSERIR
     $produtoDAO->excluirProduto($id);
 
     header("Location: controlerProduto.php?opcao=2");
+} elseif ($opcao == 4){ // BUSCAR PARA ALTERAÇÃO
+    $id = $_REQUEST["id"];
+
+    $produtoDAO = new ProdutoDAO();
+    $produto = $produtoDAO->getProduto($id);
+
+    session_start();
+
+    $_SESSION["produto"] = $produto;
+
+    header("Location: ../views/formAlterarProduto.php");
+} elseif ($opcao == 5){ // ALTERAR
+    $id = $_REQUEST["id"];
+
 }
 
 ?>
