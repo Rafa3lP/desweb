@@ -4,7 +4,7 @@ require_once("../classes/Produto.inc.php");
 
 $opcao = (int) $_REQUEST["opcao"];
 
-if($opcao == 1){
+if($opcao == 1){ // INSERIR
     $nome = $_REQUEST["nome"];
     $dataFabricacao = $_REQUEST["dataFabricacao"];
     $preco = $_REQUEST["preco"];
@@ -20,7 +20,7 @@ if($opcao == 1){
     $produtoDAO->incluirProduto($produto);
 
     header("Location: ../views/exibirProdutos.php");
-} elseif ($opcao == 2){
+} elseif ($opcao == 2){ // OBTER
     $produtoDAO = new ProdutoDAO();
 
     $produtos = $produtoDAO->getProdutos();
@@ -30,6 +30,13 @@ if($opcao == 1){
     $_SESSION["produtos"] = $produtos;
 
     header("Location: ../views/exibirProdutos.php");
+} elseif ($opcao == 3){ // EXCLUIR
+    $id = $_REQUEST["id"];
+
+    $produtoDAO = new ProdutoDAO();
+    $produtoDAO->excluirProduto($id);
+
+    header("Location: controlerProduto.php?opcao=2");
 }
 
 ?>

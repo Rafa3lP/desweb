@@ -43,6 +43,7 @@ div.corpo{
 }
 
 .btn {
+  display: inline-block;
   color: #fff;
   background-color: #C00000;
   padding: .5em 1em;
@@ -51,10 +52,15 @@ div.corpo{
   cursor: pointer;
   border-radius: .3em;
   font-size: 16px;
+  text-decoration: none;
 }
 
 .btn:hover {
   background-color: #c95757;
+}
+
+.btn.bg-blue:hover {
+  background-color: #88c4db;
 }
 
 .form {
@@ -67,6 +73,16 @@ div.corpo{
 }
 
 .form-group input[type="text"] {
+  padding: .5em;
+  font-size: 16px;
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.form-group select {
   padding: .5em;
   font-size: 16px;
   float: left;
@@ -125,7 +141,22 @@ div.corpo{
   color: white;
 }
 
+.block {
+  display: block;
+}
+
+.bg-blue {
+  background-color: #68b5d3;
+}
+
+.bg-primary {
+  background-color: #C00000;
+}
+
 /*MARGIN*/
+.m-1 {
+  margin: .5rem;
+}
 .m-auto {
   margin: auto;
 }

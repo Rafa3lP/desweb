@@ -19,7 +19,7 @@ class ProdutoDAO
 
         $sql->bindValue(':nome', $produto->getNome());
         $sql->bindValue(':descricao', $produto->getDescricao());
-        $sql->bindValue(':data_fabricacao', converteData($produto->getDataFabricacao()));
+        $sql->bindValue(':data_fabricacao', converteDataMySQL($produto->getDataFabricacao()));
         $sql->bindValue(':preco', $produto->getPreco());
         $sql->bindValue(':estoque', $produto->getEstoque());
         $sql->bindValue(':referencia', $produto->getReferencia());
@@ -48,6 +48,12 @@ class ProdutoDAO
         }
 
         return $lista;
+    }
+
+    public function excluirProduto($id){
+        $sql = $this->conn->prepare("DELETE FROM produtos WHERE produto_id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
     }
 }
 ?>

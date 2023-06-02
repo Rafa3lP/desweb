@@ -1,5 +1,10 @@
 <?php
 require_once 'includes/cabecalho.inc';
+require_once '../classes/Fabricante.inc.php';
+
+session_start();
+
+$fabricantes = $_SESSION['fabricantes'];
 ?>
 <div class="corpo" align="center" style="line-height: 3em;">
     <h2>Cadastrar Produto</h2>
@@ -25,12 +30,21 @@ require_once 'includes/cabecalho.inc';
             <input type="text" name="referencia" id="referencia">
         </div>
         <div class="form-group">
-            <label for="fabricante">Fabricante: </label>
-            <input type="text" name="fabricante" id="fabricante" value="1000" readonly>
-        </div>
-        <div class="form-group">
             <label for="dataFabricacao">Data Fabricação: </label>
             <input type="text" name="dataFabricacao" id="dataFabricacao">
+        </div>
+        <div class="form-group">
+            <label for="fabricante">Fabricante: </label>
+            <select name="fabricante" id="fabricante">
+                <option value="0">Selecione...</option>
+                <?php
+                foreach ($fabricantes as $fabricante) {
+                    ?>
+                    <option value="<?= $fabricante->getCodigo() ?>"><?= $fabricante->getNome() ?></option>
+                    <?php
+                }
+                ?>
+            </select>
         </div>
 
         <input type="hidden" name="opcao" value="1">

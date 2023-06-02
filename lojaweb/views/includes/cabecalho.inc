@@ -23,9 +23,9 @@
     </li>
     <li><a href="#">Produtos</a>
             <ul>
-                  <li><a href="formProduto.php">Cadastrar</a></li>
+                  <li><a href="../controlers/controlerFabricante.php?opcao=2">Cadastrar</a></li>
                   <li><a href="#">Cadastrar Vários</a>
-                  <li><a href="#">Consultar Todos</a>
+                  <li><a href="../controlers/controlerProduto.php?opcao=2">Consultar Todos</a>
                   <li><a href="#">Paginação</a>
             </ul>
       </li>

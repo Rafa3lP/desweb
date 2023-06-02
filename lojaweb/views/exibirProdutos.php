@@ -1,6 +1,7 @@
 <?php
 require_once 'includes/cabecalho.inc';
 require_once '../classes/Produto.inc.php';
+require_once '../utils/utils.inc.php';
 ?>
 <div class="corpo" align="center" style="line-height: 3em;">
     <h2>Exibir Produtos</h2>
@@ -15,7 +16,7 @@ require_once '../classes/Produto.inc.php';
         $produtos = $_SESSION['produtos'];
         ?>
         <div class="row">
-            <table class="table col-9 m-auto">
+            <table class="table col-10 m-auto">
                 <tr>
                     <th>ID</th>
                     <th>NOME</th>
@@ -25,6 +26,7 @@ require_once '../classes/Produto.inc.php';
                     <th>REFERÊNCIA</th>
                     <th>DATA DE FABRICAÇÃO</th>
                     <th>FABRICANTE</th>
+                    <th>OPERAÇÃO</th>
                 </tr>
                 <?php
                 foreach ($produtos as &$produto) {
@@ -40,7 +42,7 @@ require_once '../classes/Produto.inc.php';
                             <?= $produto->getDescricao() ?>
                         </td>
                         <td>
-                            <?= "R$".number_format((float)$produto->getPreco(), 2, ',', '.') ?>
+                            <?= formatarMoeda($produto->getPreco()) ?>
                         </td>
                         <td>
                             <?= $produto->getestoque() ?>
@@ -49,10 +51,14 @@ require_once '../classes/Produto.inc.php';
                             <?= $produto->getReferencia() ?>
                         </td>
                         <td>
-                            <?= date("d/m/Y", $produto->getDataFabricacao()) ?>
+                            <?= formatarData($produto->getDataFabricacao()) ?>
                         </td>
                         <td>
                             <?= $produto->getCodFabricante() ?>
+                        </td>
+                        <td>
+                            <a href="#" class="btn m-1 bg-blue">Alterar</a>
+                            <a href="../controlers/controlerProduto.php?opcao=3&id=<?=$produto->getId()?>" class="btn m-1">Excluir</a>
                         </td>
                     </tr>
                     <?php
