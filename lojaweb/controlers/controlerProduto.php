@@ -19,7 +19,7 @@ if($opcao == 1){ // INSERIR
     $produtoDAO = new ProdutoDAO();
     $produtoDAO->incluirProduto($produto);
 
-    header("Location: ../views/exibirProdutos.php");
+    header("Location: controlerProduto.php?opcao=2");
 } elseif ($opcao == 2){ // OBTER
     $produtoDAO = new ProdutoDAO();
 
@@ -47,10 +47,25 @@ if($opcao == 1){ // INSERIR
 
     $_SESSION["produto"] = $produto;
 
-    header("Location: ../views/formAlterarProduto.php");
+    header("Location: controlerFabricante.php?opcao=3");
 } elseif ($opcao == 5){ // ALTERAR
     $id = $_REQUEST["id"];
+    $nome = $_REQUEST["nome"];
+    $dataFabricacao = $_REQUEST["dataFabricacao"];
+    $preco = $_REQUEST["preco"];
+    $estoque = $_REQUEST["estoque"];
+    $descricao = $_REQUEST["descricao"];
+    $referencia = $_REQUEST["referencia"];
+    $fabricante = $_REQUEST["fabricante"];
 
+    $produto = new Produto();
+    $produto->setProduto($nome, $descricao, $dataFabricacao, $preco, $estoque, $referencia, $fabricante);
+    $produto->setId($id);
+
+    $produtoDAO = new ProdutoDAO();
+    $produtoDAO->alterarProduto($produto);
+
+    header("Location: controlerProduto.php?opcao=2");
 }
 
 ?>

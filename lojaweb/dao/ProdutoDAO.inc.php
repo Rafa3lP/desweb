@@ -27,6 +27,31 @@ class ProdutoDAO
         $sql->execute();
     }
 
+    public function alterarProduto(Produto $produto)
+    {
+        $sql = $this->conn->prepare("UPDATE produtos 
+        SET 
+        nome=:nome, 
+        descricao=:descricao, 
+        data_fabricacao=:data_fabricacao, 
+        preco=:preco, 
+        estoque=:estoque, 
+        referencia=:referencia, 
+        cod_fabricante=:cod_fabricante 
+        WHERE produto_id = :id"
+        );
+
+        $sql->bindValue(':nome', $produto->getNome());
+        $sql->bindValue(':descricao', $produto->getDescricao());
+        $sql->bindValue(':data_fabricacao', converteDataMySQL($produto->getDataFabricacao()));
+        $sql->bindValue(':preco', $produto->getPreco());
+        $sql->bindValue(':estoque', $produto->getEstoque());
+        $sql->bindValue(':referencia', $produto->getReferencia());
+        $sql->bindValue(':cod_fabricante', $produto->getCodFabricante());
+        $sql->bindValue(':id', $produto->getId());
+        $sql->execute();
+    }
+
     public function getProdutos()
     {
         $rs = $this->conn->query("SELECT * FROM produtos");
@@ -52,12 +77,12 @@ class ProdutoDAO
 
     public function getProduto($id)
     {
-        $sql = $this->conn->prepare("SELECT * FROM produtos WHERE id = :id");
+        $sql = $this->conn->prepare("SELECT * FROM produtos WHERE produto_id = :id");
         $sql->bindValue(':id', $id);
         $sql->execute();
 
         $row = $sql->fetch(PDO::FETCH_OBJ);
-        
+
         $produto = new Produto();
 
         $produto->setId($row->produto_id);
@@ -72,7 +97,8 @@ class ProdutoDAO
         return $produto;
     }
 
-    public function excluirProduto($id){
+    public function excluirProduto($id)
+    {
         $sql = $this->conn->prepare("DELETE FROM produtos WHERE produto_id = :id");
         $sql->bindValue(':id', $id);
         $sql->execute();
