@@ -130,6 +130,10 @@ div.corpo{
   float: right;
 }
 
+.left {
+  float: left;
+}
+
 .table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;

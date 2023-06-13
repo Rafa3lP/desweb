@@ -4,7 +4,7 @@ require_once("../classes/Produto.inc.php");
 
 $opcao = (int) $_REQUEST["opcao"];
 
-if($opcao == 1){ // INSERIR
+if ($opcao == 1) { // INSERIR
     $nome = $_REQUEST["nome"];
     $dataFabricacao = $_REQUEST["dataFabricacao"];
     $preco = $_REQUEST["preco"];
@@ -20,7 +20,7 @@ if($opcao == 1){ // INSERIR
     $produtoDAO->incluirProduto($produto);
 
     header("Location: controlerProduto.php?opcao=2");
-} elseif ($opcao == 2){ // OBTER
+} elseif ($opcao == 2 || $opcao == 6) { // OBTER
     $produtoDAO = new ProdutoDAO();
 
     $produtos = $produtoDAO->getProdutos();
@@ -29,15 +29,19 @@ if($opcao == 1){ // INSERIR
 
     $_SESSION["produtos"] = $produtos;
 
-    header("Location: controlerFabricante.php?opcao=4");
-} elseif ($opcao == 3){ // EXCLUIR
+    if ($opcao == 2) {
+        header("Location: controlerFabricante.php?opcao=4");
+    } else {
+        header("Location: controlerFabricante.php?opcao=5");
+    }
+} elseif ($opcao == 3) { // EXCLUIR
     $id = $_REQUEST["id"];
 
     $produtoDAO = new ProdutoDAO();
     $produtoDAO->excluirProduto($id);
 
     header("Location: controlerProduto.php?opcao=2");
-} elseif ($opcao == 4){ // BUSCAR PARA ALTERAÇÃO
+} elseif ($opcao == 4) { // BUSCAR PARA ALTERAÇÃO
     $id = $_REQUEST["id"];
 
     $produtoDAO = new ProdutoDAO();
@@ -48,7 +52,7 @@ if($opcao == 1){ // INSERIR
     $_SESSION["produto"] = $produto;
 
     header("Location: controlerFabricante.php?opcao=3");
-} elseif ($opcao == 5){ // ALTERAR
+} elseif ($opcao == 5) { // ALTERAR
     $id = $_REQUEST["id"];
     $nome = $_REQUEST["nome"];
     $dataFabricacao = $_REQUEST["dataFabricacao"];

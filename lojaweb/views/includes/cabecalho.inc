@@ -31,7 +31,7 @@
       </li>
       <li><a href="#">Vendas</a>
               <ul>
-                      <li><a href="#">Relação de produtos</a></li>
+                      <li><a href="../controlers/controlerProduto.php?opcao=6">Relação de produtos</a></li>
                       <li><a href="#">Ver carrinho</a></li>
                       <li><a href="#">Esvaziar carrinho</a></li>
               </ul>

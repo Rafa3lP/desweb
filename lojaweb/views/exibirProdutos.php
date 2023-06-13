@@ -19,7 +19,6 @@ require_once '../utils/utils.inc.php';
         foreach ($fabricantes as $fabricante) {
             if ($fabricante->getCodigo() === $cod) {
                 return $fabricante->getNome();
-                break;
             }
         }
         return null;
