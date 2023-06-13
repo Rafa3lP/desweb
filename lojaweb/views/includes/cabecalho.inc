@@ -17,8 +17,8 @@
   <li><a href="#">Quem somos?</a></li>
   <li><a href="#">Clientes</a>
           <ul>
-                  <li><a href="#">Cadastrar</a></li>
-                  <li><a href="#">Consultar Todos</a></li>
+                  <li><a href="./formCliente.php">Cadastrar</a></li>
+                  <li><a href="../controlers/controlerCliente.php?opcao=2">Consultar Todos</a></li>
           </ul>
     </li>
     <li><a href="#">Produtos</a>

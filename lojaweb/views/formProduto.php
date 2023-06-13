@@ -15,7 +15,7 @@ $fabricantes = $_SESSION['fabricantes'];
         </div>
         <div class="form-group">
             <label for="descricao">Descrição: </label>
-            <textarea name="descricao" id="descricao" cols="30" rows="10"><?=$produto->getDescricao()?></textarea>
+            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
             <label for="preco">Preço: </label>

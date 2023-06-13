@@ -72,7 +72,7 @@ div.corpo{
   margin-bottom: 1em;
 }
 
-.form-group input[type="text"] {
+.form-group input {
   padding: .5em;
   font-size: 16px;
   float: left;
@@ -93,7 +93,7 @@ div.corpo{
   cursor: pointer;
 }
 
-.form-group input[type="text"]:focus {
+.form-group input:focus {
   border-color: #C00000;
   outline: none;
 }
