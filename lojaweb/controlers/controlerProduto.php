@@ -29,7 +29,7 @@ if($opcao == 1){ // INSERIR
 
     $_SESSION["produtos"] = $produtos;
 
-    header("Location: ../views/exibirProdutos.php");
+    header("Location: controlerFabricante.php?opcao=4");
 } elseif ($opcao == 3){ // EXCLUIR
     $id = $_REQUEST["id"];
 

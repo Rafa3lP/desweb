@@ -1,6 +1,7 @@
 <?php
 require_once 'includes/cabecalho.inc';
 require_once '../classes/Produto.inc.php';
+require_once '../classes/Fabricante.inc.php';
 require_once '../utils/utils.inc.php';
 ?>
 <div class="corpo" align="center" style="line-height: 3em;">
@@ -11,6 +12,18 @@ require_once '../utils/utils.inc.php';
 
     session_start();
 
+    $fabricantes = $_SESSION['fabricantes'];
+
+    function getNomeFabricante($cod){
+        global $fabricantes;
+        foreach ($fabricantes as $fabricante) {
+            if ($fabricante->getCodigo() === $cod) {
+                return $fabricante->getNome();
+                break;
+            }
+        }
+        return null;
+    }
 
     if (isset($_SESSION['produtos'])) {
         $produtos = $_SESSION['produtos'];
@@ -54,7 +67,7 @@ require_once '../utils/utils.inc.php';
                             <?= formatarData($produto->getDataFabricacao()) ?>
                         </td>
                         <td>
-                            <?= $produto->getCodFabricante() ?>
+                            <?= getNomeFabricante($produto->getCodFabricante()) ?>
                         </td>
                         <td>
                             <a href="../controlers/controlerProduto.php?opcao=4&id=<?=$produto->getId()?>" class="btn m-1 bg-blue">Alterar</a>

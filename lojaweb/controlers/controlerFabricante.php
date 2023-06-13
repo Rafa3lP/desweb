@@ -6,7 +6,7 @@ $opcao = (int) $_REQUEST["opcao"];
 
 if($opcao == 1){ // INSERIR
     
-} elseif ($opcao == 2 || $opcao == 3){ // OBTER
+} elseif ($opcao == 2 || $opcao == 3 || $opcao == 4){ // OBTER
     $fabricanteDAO = new FabricanteDAO();
 
     $fabricantes = $fabricanteDAO->getFabricantes();
@@ -17,8 +17,10 @@ if($opcao == 1){ // INSERIR
 
     if($opcao == 2)
         header("Location: ../views/formProduto.php");
-    else
+    elseif($opcao == 3)
         header("Location: ../views/formAlterarProduto.php");
+    elseif($opcao == 4)
+        header("Location: ../views/exibirProdutos.php");
 }
 
 ?>
