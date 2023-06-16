@@ -35,18 +35,27 @@ require_once "../utils/utils.inc.php";
         <?php
         // Buscar o carrinho na sessão
         session_start();
-        $carrinho = $_SESSION["carrinho"];
+        $carrinho = $_SESSION["carrinho"] ?? [];
 
         $total = 0;
         // Realizar o percurso no vetor de carrinho e colocar as informações em cada linha <tr>
-        
+        if ($carrinho->length == 0) {
+            
+        }
         // --- FOREACH INICIA AQUI
-        foreach ($carrinho as $idx=>$produto) {
+        foreach ($carrinho as $idx => $produto) {
+            if ($idx % 2) {
+                $color = "#ffffff";
+            } else {
+                $color = "#ccc";
+            }
 
             ?>
-            <tr align="center">
+            <tr align="center" bgcolor="<?= $color ?>">
                 <td>
-                    <font face="Verdana" size="2"><?=$idx + 1?></font>
+                    <font face="Verdana" size="2">
+                        <?= $idx + 1 ?>
+                    </font>
                 </td>
                 <td>
                     <font face="Verdana" size="2">
@@ -81,7 +90,9 @@ require_once "../utils/utils.inc.php";
         ?>
         <tr align="right">
             <td colspan="5">
-                <font face="Verdana" size="4" color="red"><b>Valor Total = <?=formatarMoeda($total)?></b>
+                <font face="Verdana" size="4" color="red"><b>Valor Total =
+                        <?= formatarMoeda($total) ?>
+                    </b>
                 </font>
             </td>
         </tr>
