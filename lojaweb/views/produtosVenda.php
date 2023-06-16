@@ -9,7 +9,7 @@ require_once 'includes/cabecalho.inc';
     <h1>Produtos cadastrados</h1>
     <p>
     <div align="right">
-        <img src="imagens/meu-carrinho.png" border="0">
+        <a href='exibirCarrinho.php'><img src="imagens/meu-carrinho.png" border="0"></a>
     </div>
     <?php
 
@@ -67,7 +67,8 @@ require_once 'includes/cabecalho.inc';
                                 <?= formatarMoeda($produto->getPreco()) ?>
                             </font>
                         </b></td>
-                    <td colspan="2"><a href='../controlers/controlerCarrinho.php?opcao=1&id=<?=$produto->getId()?>'><img src='imagens/botao_comprar2.png' border='0'></a></td>
+                    <td colspan="2"><a href='../controlers/controlerCarrinho.php?opcao=1&id=<?= $produto->getId() ?>'><img
+                                src='imagens/botao_comprar2.png' border='0'></a></td>
                 </tr>
             </table>
             <p>
