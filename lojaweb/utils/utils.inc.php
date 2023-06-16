@@ -8,6 +8,6 @@ function formatarData($data) {
 }
 
 function formatarMoeda($num){
-    return "R$".number_format((float)$num, 2, ',', '.');
+    return "R$ ".number_format((float)$num, 2, ',', '.');
 }
 ?>
