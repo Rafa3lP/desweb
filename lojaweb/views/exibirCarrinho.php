@@ -9,7 +9,13 @@ require_once "../utils/utils.inc.php";
         <font face="Arial">Carrinho de Compra</font>
     </h2>
     <p>
+<?php
+// Buscar o carrinho na sessão
+session_start();
+$carrinho = $_SESSION["carrinho"] ?? [];
 
+if (count($carrinho) > 0) {
+?>
     <table border="0" cellspacing="2" width="60%">
         <tr bgcolor="#000098" align="center">
             <th>
@@ -33,15 +39,9 @@ require_once "../utils/utils.inc.php";
             </th>
         </tr>
         <?php
-        // Buscar o carrinho na sessão
-        session_start();
-        $carrinho = $_SESSION["carrinho"] ?? [];
 
         $total = 0;
         // Realizar o percurso no vetor de carrinho e colocar as informações em cada linha <tr>
-        if ($carrinho->length == 0) {
-            
-        }
         // --- FOREACH INICIA AQUI
         foreach ($carrinho as $idx => $produto) {
             if ($idx % 2) {
@@ -105,6 +105,13 @@ require_once "../utils/utils.inc.php";
                 border="0"></a>
         <img src="imagens/espaco.png" border="0">
         <a href="#"><img src="imagens/finalizarCompra.png" border="0"></a>
+        <?php
+} else {
+    ?>
+
+    <?php
+}
+        ?>
 </center>
 <?php
 require_once 'includes/rodape.inc';
