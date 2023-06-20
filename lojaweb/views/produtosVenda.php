@@ -9,7 +9,9 @@ require_once 'includes/cabecalho.inc';
     <h1>Produtos cadastrados</h1>
     <p>
     <div align="right">
-        <img src="imagens/meu-carrinho.png" border="0">
+        <a href="exibirCarrinho.php">
+            <img src="imagens/meu-carrinho.png" border="0">
+        </a>
     </div>
     <?php
 
@@ -32,12 +34,11 @@ require_once 'includes/cabecalho.inc';
     }
     // fazer o foreach colocando a tabela abaixo dentro dele
     foreach ($produtos as $produto) {
-        ?>
+    ?>
         <div>
             <table border="0" width="30%" cellspacing="10">
                 <tr>
-                    <td rowspan="5" align="center"><img src="imagens/produtos/<?= $produto->getReferencia() ?>.jpg"
-                            width="200" height="200" border="0"></td>
+                    <td rowspan="5" align="center"><img src="imagens/produtos/<?= $produto->getReferencia() ?>.jpg" width="200" height="200" border="0"></td>
                 </tr>
                 <tr align="left">
                     <td colspan="2"><b>
@@ -67,14 +68,14 @@ require_once 'includes/cabecalho.inc';
                                 <?= formatarMoeda($produto->getPreco()) ?>
                             </font>
                         </b></td>
-                    <td colspan="2"><a href='../controlers/controlerCarrinho.php?opcao=1&id=<?=$produto->getId()?>'><img src='imagens/botao_comprar2.png' border='0'></a></td>
+                    <td colspan="2"><a href='../controlers/controlerCarrinho.php?opcao=1&id=<?= $produto->getId() ?>'><img src='imagens/botao_comprar2.png' border='0'></a></td>
                 </tr>
             </table>
             <p>
                 <hr width="30%">
             <p>
         </div>
-        <?php
+    <?php
     }
     ?>
 </center>

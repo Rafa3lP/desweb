@@ -9,7 +9,10 @@ require_once "../utils/utils.inc.php";
         <font face="Arial">Carrinho de Compra</font>
     </h2>
     <p>
-
+        <?php
+        session_start();
+        if (isset($_SESSION["carrinho"])) {
+        ?>
     <table border="0" cellspacing="2" width="60%">
         <tr bgcolor="#000098" align="center">
             <th>
@@ -33,20 +36,17 @@ require_once "../utils/utils.inc.php";
             </th>
         </tr>
         <?php
-        // Buscar o carrinho na sessão
-        session_start();
-        $carrinho = $_SESSION["carrinho"];
+            $carrinho = $_SESSION["carrinho"];
+            $total = 0;
+            // Realizar o percurso no vetor de carrinho e colocar as informações em cada linha <tr>
 
-        $total = 0;
-        // Realizar o percurso no vetor de carrinho e colocar as informações em cada linha <tr>
-        
-        // --- FOREACH INICIA AQUI
-        foreach ($carrinho as $idx=>$produto) {
+            // --- FOREACH INICIA AQUI
+            foreach ($carrinho as $idx => $produto) {
 
-            ?>
+        ?>
             <tr align="center">
                 <td>
-                    <font face="Verdana" size="2"><?=$idx + 1?></font>
+                    <font face="Verdana" size="2"><?= $idx + 1 ?></font>
                 </td>
                 <td>
                     <font face="Verdana" size="2">
@@ -72,16 +72,15 @@ require_once "../utils/utils.inc.php";
                     <font face="Verdana" size="2"><a href="#"><img src="imagens/rem3.jpg"></a></font>
                 </td>
             </tr>
-            <?php
+        <?php
 
-            // calcular a soma aqui
-            $total += $produto->getPreco();
-            // --- FOREACH FINALIZA AQUI
-        }
+                // calcular a soma aqui
+                $total += $produto->getPreco();
+            }
         ?>
         <tr align="right">
             <td colspan="5">
-                <font face="Verdana" size="4" color="red"><b>Valor Total = <?=formatarMoeda($total)?></b>
+                <font face="Verdana" size="4" color="red"><b>Valor Total = <?= formatarMoeda($total) ?></b>
                 </font>
             </td>
         </tr>
@@ -90,10 +89,18 @@ require_once "../utils/utils.inc.php";
         <hr width="50%">
         <img src="imagens/espaco.png" border="0">
     <p>
-        <a href="../controlers/controlerProduto.php?opcao=6"><img src="imagens/botao_continuar_comprando.png"
-                border="0"></a>
+        <a href="../controlers/controlerProduto.php?opcao=6"><img src="imagens/botao_continuar_comprando.png" border="0"></a>
         <img src="imagens/espaco.png" border="0">
         <a href="#"><img src="imagens/finalizarCompra.png" border="0"></a>
+    <?php
+        } else {
+    ?>
+        <p>
+            <font face="Arial">Não há produtos no carrinho de compras</font>
+        </p>
+    <?php
+        }
+    ?>
 </center>
 <?php
 require_once 'includes/rodape.inc';
