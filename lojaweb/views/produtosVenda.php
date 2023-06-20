@@ -69,14 +69,11 @@ require_once 'includes/cabecalho.inc';
                                 <?= formatarMoeda($produto->getPreco()) ?>
                             </font>
                         </b></td>
-                    <<<<<<< HEAD <td colspan="2"><a
-                            href='../controlers/controlerCarrinho.php?opcao=1&id=<?= $produto->getId() ?>'><img
-                                src='imagens/botao_comprar2.png' border='0'></a></td>
-                        =======
-                        <td colspan="2"><a
-                                href='../controlers/controlerCarrinho.php?opcao=1&id=<?= $produto->getId() ?>'><img
-                                    src='imagens/botao_comprar2.png' border='0'></a></td>
-                        >>>>>>> 95ceaea2a3daaeb13d336c8426b6783614ca45dd
+                    <td colspan="2">
+                        <a href='../controlers/controlerCarrinho.php?opcao=1&id=<?= $produto->getId() ?>'>
+                            <img src='imagens/botao_comprar2.png' border='0'>
+                        </a>
+                    </td>
                 </tr>
             </table>
             <p>
