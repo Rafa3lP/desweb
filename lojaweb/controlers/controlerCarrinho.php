@@ -1,6 +1,6 @@
 <?php
 require_once("../dao/ProdutoDAO.inc.php");
-require_once("../classes/Produto.inc.php");
+require_once("../classes/ItemVenda.inc.php");
 
 $opcao = $_REQUEST["opcao"];
 
@@ -18,18 +18,37 @@ if($opcao == 1){// Inserir no carrinho
     if(isset($_SESSION["carrinho"]))
         $carrinho = $_SESSION["carrinho"];
 
-    if(!isProdutoInCarrinho($carrinho, $produto))
-        $carrinho[] = $produto;
+    $item = getItemCarrinho($carrinho, $produto);
+    
+    if(!$item) {
+        $item = new ItemVenda($produto);
+        $carrinho[] = $item;
+    } else {
+        $item->setQuantidade();
+        $item->setValorItem();
+    }
     
     $_SESSION["carrinho"] = $carrinho;
 
     header("Location: ../views/exibirCarrinho.php");
+} elseif($opcao == 2) {
+    $index = (int)$_REQUEST["index"];
+
+    session_start();
+    $carrinho = $_SESSION["carrinho"];
+
+    unset($carrinho[$index]);
+    sort($carrinho);
+
+    $_SESSION["carrinho"] = $carrinho;
+
+    header("Location: ../views/exibirCarrinho.php");
 }
-function isProdutoInCarrinho($carrinho, $produto){
+function getItemCarrinho(array $carrinho, Produto $produto){
     foreach($carrinho as $item) {
-        if($item->getId() == $produto->getId())
-            return true;
+        if($item->getProduto()->getId() == $produto->getId())
+            return $item;
     }
-    return false;
+    return null;
 }
 ?>

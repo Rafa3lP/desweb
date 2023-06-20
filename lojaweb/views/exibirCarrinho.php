@@ -1,8 +1,8 @@
 <?php
 require_once 'includes/cabecalho.inc';
-require_once '../classes/Produto.inc.php';
 require_once "../utils/utils.inc.php";
-?>
+require_once "../classes/ItemVenda.inc.php"
+    ?>
 
 <center>
     <h2>
@@ -11,7 +11,7 @@ require_once "../utils/utils.inc.php";
     <p>
         <?php
         session_start();
-        if (isset($_SESSION["carrinho"])) {
+        if (isset($_SESSION["carrinho"]) && count($_SESSION["carrinho"]) > 0) {
             ?>
         <table border="0" cellspacing="2" width="60%">
             <tr bgcolor="#000098" align="center">
@@ -29,7 +29,13 @@ require_once "../utils/utils.inc.php";
                     <font face="Verdana" size="2" color="#FFFFFF">Fabricante</font>
                 </th>
                 <th>
-                    <font face="Verdana" size="2" color="#FFFFFF">Valor</font>
+                    <font face="Verdana" size="2" color="#FFFFFF">Qtd</font>
+                </th>
+                <th>
+                    <font face="Verdana" size="2" color="#FFFFFF">ValorTitem</font>
+                </th>
+                <th>
+                    <font face="Verdana" size="2" color="#FFFFFF">Valor Total</font>
                 </th>
                 <th bgcolor="#FFFFFF">
                     <font face="Verdana" size="2" color="#000000">Remover</font>
@@ -41,7 +47,7 @@ require_once "../utils/utils.inc.php";
             // Realizar o percurso no vetor de carrinho e colocar as informações em cada linha <tr>
         
             // --- FOREACH INICIA AQUI
-            foreach ($carrinho as $idx => $produto) {
+            foreach ($carrinho as $idx => $item) {
                 if ($idx % 2) {
                     $color = "#ffffff";
                 } else {
@@ -57,36 +63,47 @@ require_once "../utils/utils.inc.php";
                     </td>
                     <td>
                         <font face="Verdana" size="2">
-                            <?= $produto->getId() ?>
+                            <?= $item->getProduto()->getId() ?>
                         </font>
                     </td>
                     <td>
                         <font face="Verdana" size="2">
-                            <?= $produto->getNome() ?>
+                            <?= $item->getProduto()->getNome() ?>
                         </font>
                     </td>
                     <td>
                         <font face="Verdana" size="2">
-                            <?= $produto->getCodFabricante() ?>
+                            <?= $item->getProduto()->getCodFabricante() ?>
                         </font>
                     </td>
                     <td>
                         <font face="Verdana" size="2">
-                            <?= formatarMoeda($produto->getPreco()) ?>
+                            <?= $item->getQuantidade() ?>
+                        </font>
+                    </td>
+                    <td>
+                        <font face="Verdana" size="2">
+                            <?= formatarMoeda($item->getProduto()->getPreco()) ?>
+                        </font>
+                    </td>
+                    <td>
+                        <font face="Verdana" size="2">
+                            <?= formatarMoeda($item->getValorItem()) ?>
                         </font>
                     </td>
                     <td bgcolor="#FFFFFF">
-                        <font face="Verdana" size="2"><a href="#"><img src="imagens/rem3.jpg"></a></font>
+                        <font face="Verdana" size="2"><a href="../controlers/controlerCarrinho.php?opcao=2&index=<?= $idx ?>"><img
+                                    src="imagens/rem3.jpg"></a></font>
                     </td>
                 </tr>
                 <?php
 
                 // calcular a soma aqui
-                $total += $produto->getPreco();
+                $total += $item->getValorItem();
             }
             ?>
             <tr align="right">
-                <td colspan="5">
+                <td colspan="7">
                     <font face="Verdana" size="4" color="red"><b>Valor Total =
                             <?= formatarMoeda($total) ?>
                         </b>
