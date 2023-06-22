@@ -176,6 +176,9 @@ div.corpo{
 .m-auto {
   margin: auto;
 }
+.mt-1 {
+  margin-top: .5rem;
+}
 
 /*GRID*/
 .row {

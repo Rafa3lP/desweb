@@ -8,12 +8,10 @@ require_once "../classes/ItemVenda.inc.php"
     <h2>
         <font face="Arial">Carrinho de Compra</font>
     </h2>
-    <p>
-        <?php
-        session_start();
-        if (isset($_SESSION["carrinho"]) && count($_SESSION["carrinho"]) > 0) {
-            ?>
-        <table border="0" cellspacing="2" width="60%">
+    <?php
+    session_start();
+    if (isset($_SESSION["carrinho"]) && count($_SESSION["carrinho"]) > 0) { ?>
+        <table border="0" cellspacing="2" width="60%" class="mt-1">
             <tr bgcolor="#000098" align="center">
                 <th>
                     <font face="Verdana" size="2" color="#FFFFFF">
@@ -92,7 +90,8 @@ require_once "../classes/ItemVenda.inc.php"
                         </font>
                     </td>
                     <td bgcolor="#FFFFFF">
-                        <font face="Verdana" size="2"><a href="../controlers/controlerCarrinho.php?opcao=2&index=<?= $idx ?>"><img
+                        <font face="Verdana" size="2"><a
+                                href="../controlers/controlerCarrinho.php?opcao=2&index=<?= $idx ?>"><img
                                     src="imagens/rem3.jpg"></a></font>
                     </td>
                 </tr>
@@ -117,17 +116,20 @@ require_once "../classes/ItemVenda.inc.php"
         <p>
             <a href="../controlers/controlerProduto.php?opcao=6"><img src="imagens/botao_continuar_comprando.png"
                     border="0"></a>
-            <img src="imagens/espaco.png" border="0">
-            <a href="#"><img src="imagens/finalizarCompra.png" border="0"></a>
-            <?php
-        } else {
-            ?>
-        <p>
+        <img src="imagens/espaco.png" border="0" />
+        <a href="#"><img src="imagens/finalizarCompra.png" border="0"></a>
+        <?php
+    } else {
+        ?>
+        <p class="m-1">
             <font face="Arial">Não há produtos no carrinho de compras</font>
         </p>
+        <p class="m-1">
+            <a href="../controlers/controlerProduto.php?opcao=6">Visualizar produtos</a>
+        </p>
         <?php
-        }
-        ?>
+    }
+    ?>
 </center>
 <?php
 require_once 'includes/rodape.inc';

@@ -33,7 +33,7 @@
               <ul>
                       <li><a href="../controlers/controlerProduto.php?opcao=6">Relação de produtos</a></li>
                       <li><a href="exibirCarrinho.php">Ver carrinho</a></li>
-                      <li><a href="#">Esvaziar carrinho</a></li>
+                      <li><a href="../controlers/controlerCarrinho.php?opcao=3">Esvaziar carrinho</a></li>
               </ul>
         </li>
   <li><a href="contato.php">Contato</a></li>

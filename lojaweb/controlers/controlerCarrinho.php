@@ -4,7 +4,7 @@ require_once("../classes/ItemVenda.inc.php");
 
 $opcao = $_REQUEST["opcao"];
 
-if($opcao == 1){// Inserir no carrinho
+if($opcao == 1){// INSERIR NO CARRINHO
     $id = $_REQUEST["id"];
 
     $produtoDAO = new ProdutoDAO();
@@ -31,7 +31,7 @@ if($opcao == 1){// Inserir no carrinho
     $_SESSION["carrinho"] = $carrinho;
 
     header("Location: ../views/exibirCarrinho.php");
-} elseif($opcao == 2) {
+} elseif($opcao == 2) { // REMOVER PRODUTO DO CARRINHO
     $index = (int)$_REQUEST["index"];
 
     session_start();
@@ -43,6 +43,24 @@ if($opcao == 1){// Inserir no carrinho
     $_SESSION["carrinho"] = $carrinho;
 
     header("Location: ../views/exibirCarrinho.php");
+} elseif($opcao == 3) { // ESVAZIAR CARRINHO
+    session_start();
+
+    unset($_SESSION["carrinho"]);
+
+    header("Location: ../controlers/controlerProduto.php?opcao=6");
+} elseif($opcao == 4) { // VALIDAR CARRINHO VAZIO
+    /*
+    validação pode ser feita no controller dessa forma,
+    mas foi optado por fazê-la na view
+    */ 
+    session_start();
+
+    if(!isset($_SESSION["carrinho"]) || sizeof($_SESSION["carrinho"]) == 0) {
+        header("Location: ../views/exibirCarrinho.php?status=1");
+    }   else {
+        header("Location: ../views/exibirCarrinho.php");
+    }
 }
 function getItemCarrinho(array $carrinho, Produto $produto){
     foreach($carrinho as $item) {
