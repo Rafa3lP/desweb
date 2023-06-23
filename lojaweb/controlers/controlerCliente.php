@@ -72,6 +72,20 @@ if($opcao == 1){ // INSERIR
     $clienteDAO->alterarCliente($cliente);
 
     header("Location: controlerCliente.php?opcao=2");
+} elseif ($opcao == 6){ // LOGIN
+    $email = $_REQUEST["email"];
+    $senha = $_REQUEST["senha"];
+
+    $clienteDAO = new clienteDAO();
+    $cliente = $clienteDAO->autenticar($email, $senha);
+
+    if($cliente != null){
+        session_start();
+        $_SESSION["cliente"] = $cliente;
+        header("Location: ../views/dadosCompra.php");
+    } else {
+        header("Location: ../views/formLoginCliente.php?erro=1");
+    }
 }
 
 ?>

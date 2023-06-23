@@ -117,7 +117,7 @@ require_once "../classes/ItemVenda.inc.php"
             <a href="../controlers/controlerProduto.php?opcao=6"><img src="imagens/botao_continuar_comprando.png"
                     border="0"></a>
         <img src="imagens/espaco.png" border="0" />
-        <a href="#"><img src="imagens/finalizarCompra.png" border="0"></a>
+        <a href="../controlers/controlerCarrinho.php?opcao=5&total=<?=$total?>"><img src="imagens/finalizarCompra.png" border="0"></a>
         <?php
     } else {
         ?>

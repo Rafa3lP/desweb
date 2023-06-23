@@ -61,7 +61,16 @@ if($opcao == 1){// INSERIR NO CARRINHO
     }   else {
         header("Location: ../views/exibirCarrinho.php");
     }
+} elseif($opcao == 5) { // PROCESSO DE VENDA
+    $total = (float)$_REQUEST["total"];
+
+    session_start();
+
+    $_SESSION["total"] = $total;
+
+    header("Location: ../views/formLoginCliente.php");
 }
+
 function getItemCarrinho(array $carrinho, Produto $produto){
     foreach($carrinho as $item) {
         if($item->getProduto()->getId() == $produto->getId())

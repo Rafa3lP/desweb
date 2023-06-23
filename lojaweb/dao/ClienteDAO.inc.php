@@ -69,19 +69,7 @@ class ClienteDAO
 
         $lista = array();
         while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
-            $cliente = new Cliente();
-
-            $cliente->setCpf($row->cpf);
-            $cliente->setNome($row->nome);
-            $cliente->setLogradouro($row->logradouro);
-            $cliente->setCidade($row->cidade);
-            $cliente->setEstado($row->estado);
-            $cliente->setCep($row->cep);
-            $cliente->setTelefone($row->telefone);
-            $cliente->setDataNascimento($row->data_nascimento);
-            $cliente->setEmail($row->email);
-            $cliente->setSenha($row->senha);
-            $cliente->setRg($row->rg);
+            $cliente = $this->rowToCliente($row);
 
             $lista[] = $cliente;
         }
@@ -97,6 +85,36 @@ class ClienteDAO
 
         $row = $sql->fetch(PDO::FETCH_OBJ);
 
+        $cliente = $this->rowToCliente($row);
+
+        return $cliente;
+    }
+
+    public function excluirCliente($cpf)
+    {
+        $sql = $this->conn->prepare("DELETE FROM clientes WHERE cpf = :cpf");
+        $sql->bindValue(':cpf', $cpf);
+        $sql->execute();
+    }
+
+    public function autenticar(string $email, string $senha) {
+        $sql = $this->conn->prepare("SELECT * FROM clientes WHERE email = :email AND senha = :senha");
+        $sql->bindValue(':email', $email);
+        $sql->bindValue(':senha', $senha);
+        $sql->execute();
+
+        $count = $sql->rowCount();
+
+        if($count == 1) {
+            $row = $sql->fetch(PDO::FETCH_OBJ);
+            $cliente = $this->rowToCliente($row);
+            return $cliente;
+        }
+
+        return null;
+    }
+
+    private function rowToCliente($row) {
         $cliente = new Cliente();
 
         $cliente->setCpf($row->cpf);
@@ -112,13 +130,6 @@ class ClienteDAO
         $cliente->setRg($row->rg);
 
         return $cliente;
-    }
-
-    public function excluirCliente($cpf)
-    {
-        $sql = $this->conn->prepare("DELETE FROM clientes WHERE cpf = :cpf");
-        $sql->bindValue(':cpf', $cpf);
-        $sql->execute();
     }
 }
 ?>

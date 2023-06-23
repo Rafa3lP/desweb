@@ -27,6 +27,7 @@ require_once '../utils/utils.inc.php';
                     <th>TELEFONE</th>
                     <th>NASCIMENTO</th>
                     <th>EMAIL</th>
+                    <th>SENHA</th>
                     <th>RG</th>
                     <th>OPERAÇÃO</th>
                 </tr>
@@ -43,6 +44,7 @@ require_once '../utils/utils.inc.php';
                         <td><?= $cliente->getTelefone() ?></td>
                         <td><?= formatarData($cliente->getDataNascimento()) ?></td>
                         <td><?= $cliente->getEmail() ?></td>
+                        <td><?= $cliente->getSenha() ?></td>
                         <td><?= $cliente->getRg() ?></td>
                         <td>
                             <a href="../controlers/controlerCliente.php?opcao=4&cpf=<?= $cliente->getCpf() ?>" class="btn m-1 bg-blue">Alterar</a>

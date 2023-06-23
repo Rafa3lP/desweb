@@ -180,10 +180,19 @@ div.corpo{
   margin-top: .5rem;
 }
 
+/*PADDING*/
+.p-0 {
+  padding: 0;
+}
+
 /*GRID*/
 .row {
   display: flex;
   justify-content: flex-start;
+}
+
+.justify-content-center {
+  justify-content: center;
 }
 
 [class*="col-"] {
