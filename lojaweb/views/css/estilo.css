@@ -157,6 +157,10 @@ div.corpo{
   color: white;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .block {
   display: block;
 }

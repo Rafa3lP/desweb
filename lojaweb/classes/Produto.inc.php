@@ -9,6 +9,7 @@ class Produto
     private $descricao;
     private $referencia;
     private $codFabricante;
+    private $fabricante;
 
     function __construct()
     {
@@ -67,6 +68,11 @@ class Produto
         return $this->codFabricante;
     }
 
+    public function getFabricante()
+    {
+        return $this->fabricante;
+    }
+
     //SETTERS
     public function setId($id)
     {
@@ -106,6 +112,11 @@ class Produto
     public function setCodFabricante($codFabricante)
     {
         $this->codFabricante = $codFabricante;
+    }
+
+    public function setFabricante(string $fabricante)
+    {
+        $this->fabricante = $fabricante;
     }
 }
 ?>

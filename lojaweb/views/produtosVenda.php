@@ -20,18 +20,6 @@ require_once 'includes/cabecalho.inc';
     // capturar a lista de produtos
     $produtos = $_SESSION["produtos"];
 
-    $fabricantes = $_SESSION['fabricantes'];
-
-    function getNomeFabricante($cod)
-    {
-        global $fabricantes;
-        foreach ($fabricantes as $fabricante) {
-            if ($fabricante->getCodigo() === $cod) {
-                return $fabricante->getNome();
-            }
-        }
-        return null;
-    }
     // fazer o foreach colocando a tabela abaixo dentro dele
     foreach ($produtos as $produto) {
         ?>
@@ -58,7 +46,7 @@ require_once 'includes/cabecalho.inc';
                 <tr>
                     <td colspan="2">
                         <font face="Verdana" size="2"><b>Fabricante:</b>
-                            <?= getNomeFabricante($produto->getCodFabricante()) ?>
+                            <?= $produto->getFabricante() ?>
                         </font>
                     </td>
                 </tr>

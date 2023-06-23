@@ -12,18 +12,6 @@ require_once '../utils/utils.inc.php';
 
     session_start();
 
-    $fabricantes = $_SESSION['fabricantes'];
-
-    function getNomeFabricante($cod){
-        global $fabricantes;
-        foreach ($fabricantes as $fabricante) {
-            if ($fabricante->getCodigo() === $cod) {
-                return $fabricante->getNome();
-            }
-        }
-        return null;
-    }
-
     if (isset($_SESSION['produtos'])) {
         $produtos = $_SESSION['produtos'];
         ?>
@@ -66,7 +54,7 @@ require_once '../utils/utils.inc.php';
                             <?= formatarData($produto->getDataFabricacao()) ?>
                         </td>
                         <td>
-                            <?= getNomeFabricante($produto->getCodFabricante()) ?>
+                            <?= $produto->getFabricante() ?>
                         </td>
                         <td>
                             <a href="../controlers/controlerProduto.php?opcao=4&id=<?=$produto->getId()?>" class="btn m-1 bg-blue">Alterar</a>

@@ -78,6 +78,10 @@ class Cliente
         return $this->rg;
     }
 
+    public function getEndereco(){
+        return $this->logradouro . ", " . $this->cidade . " - " . $this->estado . ", CEP: " . $this->cep;
+    }
+
     //SETTERS
     public function setCpf($cpf){
         $this->cpf = $cpf;

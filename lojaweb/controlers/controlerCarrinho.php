@@ -68,7 +68,7 @@ if($opcao == 1){// INSERIR NO CARRINHO
 
     $_SESSION["total"] = $total;
 
-    if(isset($_SESSION["cliente"])) {
+    if(isset($_SESSION["clienteLogado"])) {
         header("Location: ../views/dadosCompra.php");
     } else {
         header("Location: ../views/formLoginCliente.php");

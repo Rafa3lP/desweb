@@ -29,7 +29,8 @@ class ProdutoDAO
 
     public function alterarProduto(Produto $produto)
     {
-        $sql = $this->conn->prepare("UPDATE produtos 
+        $sql = $this->conn->prepare(
+            "UPDATE produtos 
         SET 
         nome=:nome, 
         descricao=:descricao, 
@@ -62,6 +63,7 @@ class ProdutoDAO
 
             $produto->setId($row->produto_id);
             $produto->setCodFabricante($row->cod_fabricante);
+            $produto->setFabricante($this->getFabricante($row->cod_fabricante));
             $produto->setDescricao($row->descricao);
             $produto->setNome($row->nome);
             $produto->setDataFabricacao($row->data_fabricacao);
@@ -87,6 +89,7 @@ class ProdutoDAO
 
         $produto->setId($row->produto_id);
         $produto->setCodFabricante($row->cod_fabricante);
+        $produto->setFabricante($this->getFabricante($row->cod_fabricante));
         $produto->setDescricao($row->descricao);
         $produto->setNome($row->nome);
         $produto->setDataFabricacao($row->data_fabricacao);
@@ -103,5 +106,16 @@ class ProdutoDAO
         $sql->bindValue(':id', $id);
         $sql->execute();
     }
+
+    private function getFabricante($id)
+    {
+        $sql = $this->conn->prepare("SELECT nome FROM fabricantes where codigo = :id");
+    
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+    
+        $fab = $sql->fetch(PDO::FETCH_OBJ);
+    
+        return $fab->nome;
+    }
 }
-?>

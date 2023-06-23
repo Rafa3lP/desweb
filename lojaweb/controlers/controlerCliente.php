@@ -81,7 +81,7 @@ if($opcao == 1){ // INSERIR
 
     if($cliente != null){
         session_start();
-        $_SESSION["cliente"] = $cliente;
+        $_SESSION["clienteLogado"] = $cliente;
         header("Location: ../views/dadosCompra.php");
     } else {
         header("Location: ../views/formLoginCliente.php?erro=1");
