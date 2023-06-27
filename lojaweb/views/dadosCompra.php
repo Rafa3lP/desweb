@@ -14,11 +14,16 @@ $carrinho = $_SESSION["carrinho"];
 <div class="corpo" align="center" style="line-height: 3em;">
      <h2>Dados do Cliente</h2>
      <div style="line-height: 1.5;">
-          Nome: <?= $cliente->getNome() ?></br>
-          CPF: <?= $cliente->getCpf() ?></br>
-          Endereço completo: <?= $cliente->getEndereco() ?></br>
-          Telefone: <?= $cliente->getTelefone() ?></br>
-          Email: <?= $cliente->getEmail() ?></br>
+          Nome:
+          <?= $cliente->getNome() ?></br>
+          CPF:
+          <?= $cliente->getCpf() ?></br>
+          Endereço completo:
+          <?= $cliente->getEndereco() ?></br>
+          Telefone:
+          <?= $cliente->getTelefone() ?></br>
+          Email:
+          <?= $cliente->getEmail() ?></br>
      </div>
      <p>
           <hr width="60%">
@@ -49,11 +54,12 @@ $carrinho = $_SESSION["carrinho"];
           </tr>
           <?php
           foreach ($carrinho as $idx => $item) {
-          ?>
+               ?>
                <tr align="center">
                     <td>
                          <font face="Verdana" size="2">
-                              <img src="imagens/produtos/<?= $item->getProduto()->getReferencia() ?>.jpg" width="100" height="100" border="0">
+                              <img src="imagens/produtos/<?= $item->getProduto()->getReferencia() ?>.jpg" width="100"
+                                   height="100" border="0">
                          </font>
                     </td>
                     <td>
@@ -82,7 +88,7 @@ $carrinho = $_SESSION["carrinho"];
                          </font>
                     </td>
                </tr>
-          <?php
+               <?php
           }
           ?>
           <tr align="center">
@@ -98,7 +104,9 @@ $carrinho = $_SESSION["carrinho"];
           <hr width="60%">
           <img src="imagens/espaco.png" border="0">
      </p>
-     <button type="button">Próximo >></button>
+     <a href="dadosPagamento.php">
+          <button type="button">Próximo >></button>
+     </a>
      <div>
           <img src="imagens/espaco.png" border="0" />
      </div>
