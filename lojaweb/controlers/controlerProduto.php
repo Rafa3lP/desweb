@@ -70,6 +70,23 @@ if ($opcao == 1) { // INSERIR
     $produtoDAO->alterarProduto($produto);
 
     header("Location: controlerProduto.php?opcao=2");
+} elseif($opcao == 7) { // Obter produtos com paginação
+    $pagina = (int) $_REQUEST["pagina"];
+    $produtoDAO = new ProdutoDAO();
+
+    $produtos = $produtoDAO->getProdutosPaginacao($pagina);
+    $numPaginas = $produtoDAO->getPagina();
+
+    session_start();
+    $_SESSION["produtos"] = $produtos;
+
+    header("Location: ../views/exibirProdutosPaginacao.php?paginas=$numPaginas");
+} elseif($opcao == 8) { // Incluir vários produtos
+    $produtoDAO = new ProdutoDAO();
+
+    $produtoDAO->incluirVariosProdutos();
+    
+    header("Location: controlerProduto.php?opcao=2");
 }
 
 ?>
