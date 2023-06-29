@@ -151,15 +151,15 @@ class ProdutoDAO
     private function getFabricante($id)
     {
         $sql = $this->conn->prepare("SELECT nome FROM fabricantes where codigo = :id");
-
+    
         $sql->bindValue(':id', $id);
         $sql->execute();
-
+    
         $fab = $sql->fetch(PDO::FETCH_OBJ);
-
+    
         return $fab->nome;
     }
-
+    
     private function rowToProduto($row)
     {
         $produto = new Produto();
