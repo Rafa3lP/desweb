@@ -189,8 +189,8 @@ ALTER TABLE `fabricantes`
 -- Índices para tabela `itens`
 --
 ALTER TABLE `itens`
-  ADD PRIMARY KEY (`id_item`),
-  ADD KEY `id_venda` (`id_venda`);
+  ADD PRIMARY KEY (`id_item`, `id_venda`),
+  ADD FOREIGN KEY (`id_venda`) REFERENCES `vendas` (`id_venda`);
 
 --
 -- Índices para tabela `produtos`

@@ -25,6 +25,8 @@ if($opcao == 1) { // INCLUIR VENDA
     } else if ($metodoPagamento == "cartao") {
         echo "dados cartao";
     }
+
+    unset($_SESSION["carrinho"], $_SESSION["total"]);
 }
 
 ?>
