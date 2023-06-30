@@ -22,11 +22,12 @@ if($opcao == 1) { // INCLUIR VENDA
 
     if($metodoPagamento == "boleto") {
         echo "Emitir o boleto bancário";
+        header("Location: ../views/boleto/meuBoleto.php");
     } else if ($metodoPagamento == "cartao") {
         echo "dados cartao";
     }
 
-    unset($_SESSION["carrinho"], $_SESSION["total"]);
+    unset($_SESSION["carrinho"]);
 }
 
 ?>
