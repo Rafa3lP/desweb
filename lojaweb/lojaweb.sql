@@ -6,6 +6,9 @@
 -- Tempo de geração: 11-Ago-2021 às 16:45
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
+drop database desweb;
+CREATE database desweb;
+use desweb;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -185,12 +188,14 @@ ALTER TABLE `clientes`
 ALTER TABLE `fabricantes`
   ADD PRIMARY KEY (`codigo`);
 
+delete from `itens`;
+delete from `vendas`;
 --
 -- Índices para tabela `itens`
 --
 ALTER TABLE `itens`
-  ADD PRIMARY KEY (`id_item`, `id_venda`),
-  ADD FOREIGN KEY (`id_venda`) REFERENCES `vendas` (`id_venda`);
+  ADD CONSTRAINT `pk_item`
+    PRIMARY KEY (`id_item`, `id_venda`);
 
 --
 -- Índices para tabela `produtos`
@@ -210,6 +215,18 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `vendas`
   ADD PRIMARY KEY (`id_venda`);
+  
+  --
+-- AUTO_INCREMENT de tabela `vendas`
+--
+ALTER TABLE `vendas`
+  MODIFY `id_venda` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `itens`
+ADD CONSTRAINT `fk_itemVenda`
+    FOREIGN KEY (`id_venda`)
+    REFERENCES `vendas` (`id_venda`)
+    ON DELETE CASCADE;
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -221,11 +238,7 @@ ALTER TABLE `vendas`
 ALTER TABLE `produtos`
   MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
 
---
--- AUTO_INCREMENT de tabela `vendas`
---
-ALTER TABLE `vendas`
-  MODIFY `id_venda` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- Restrições para despejos de tabelas
