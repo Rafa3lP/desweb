@@ -12,7 +12,7 @@ $produto = $_SESSION['produto'];
 ?>
 <div class="corpo" align="center" style="line-height: 3em;">
     <h2>Alterar Produto</h2>
-    <form action="../controlers/controlerProduto.php" method="post" class="form">
+    <form action="../controlers/controlerProduto.php" method="post" class="form" enctype="multipart/form-data">
         <input type="hidden" name="id" id="id" value="<?= $produto->getId() ?>" readonly>
         <div class="form-group">
             <label for="nome">Nome: </label>
@@ -57,6 +57,10 @@ $produto = $_SESSION['produto'];
                 }
                 ?>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="imagem">Alterar foto: </label>
+            <input type="file" name="imagem" id="imagem">
         </div>
 
         <input type="hidden" name="opcao" value="5">

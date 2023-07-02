@@ -72,6 +72,18 @@ if ($opcao == 1) { // INSERIR
     $produto->setId($id);
 
     $produtoDAO = new ProdutoDAO();
+
+    $produtoOld = $produtoDAO->getProduto($id);
+
+    if(isset($_FILES["imagem"]) && $_FILES["imagem"] != NULL){
+        deletarFoto($produtoOld->getReferencia());
+        uploadFotos($referencia);
+    } else {
+        if($produtoOld->getReferencia() != $referencia){
+            renomearFoto($produtoOld->getReferencia(), $referencia);
+        }
+    }
+
     $produtoDAO->alterarProduto($produto);
 
     header("Location: controlerProduto.php?opcao=2");
@@ -113,6 +125,17 @@ function deletarFoto($ref){
     if(file_exists( $arquivo )){
         if (!unlink($arquivo)){
             echo "Não foi possível deletar o arquivo!";
+        }
+    }
+}
+
+function renomearFoto($ref, $refNova){
+    $arquivo = "../views/imagens/produtos/$ref.jpg";
+    $arquivoNovo = "../views/imagens/produtos/$refNova.jpg";
+
+    if(file_exists( $arquivo )){
+        if (!rename($arquivo, $arquivoNovo)){
+            echo "Não foi possível renomear o arquivo!";
         }
     }
 }
