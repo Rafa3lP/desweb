@@ -19,6 +19,8 @@ if ($opcao == 1) { // INSERIR
     $produtoDAO = new ProdutoDAO();
     $produtoDAO->incluirProduto($produto);
 
+    uploadFotos($referencia);
+
     header("Location: controlerProduto.php?opcao=2");
 } elseif ($opcao == 2 || $opcao == 6) { // OBTER
     $produtoDAO = new ProdutoDAO();
@@ -38,6 +40,9 @@ if ($opcao == 1) { // INSERIR
     $id = $_REQUEST["id"];
 
     $produtoDAO = new ProdutoDAO();
+
+    deletarFoto($produtoDAO->getProduto($id)->getReferencia());
+
     $produtoDAO->excluirProduto($id);
 
     header("Location: controlerProduto.php?opcao=2");
@@ -87,6 +92,29 @@ if ($opcao == 1) { // INSERIR
     $produtoDAO->incluirVariosProdutos();
     
     header("Location: controlerProduto.php?opcao=2");
+}
+
+function uploadFotos($ref){
+    $imagem = $_FILES["imagem"];
+    $nome = $ref;
+    
+    if($imagem != NULL) {
+        $nome_temporario=$_FILES["imagem"]["tmp_name"];
+        copy($nome_temporario,"../views/imagens/produtos/$nome.jpg");
+    }
+    else {
+        echo "Você não realizou o upload de forma satisfatória.";
+    }    
+}
+
+function deletarFoto($ref){
+    $arquivo = "../views/imagens/produtos/$ref.jpg";
+
+    if(file_exists( $arquivo )){
+        if (!unlink($arquivo)){
+            echo "Não foi possível deletar o arquivo!";
+        }
+    }
 }
 
 ?>

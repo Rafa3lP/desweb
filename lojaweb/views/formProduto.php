@@ -8,7 +8,7 @@ $fabricantes = $_SESSION['fabricantes'];
 ?>
 <div class="corpo" align="center" style="line-height: 3em;">
     <h2>Cadastrar Produto</h2>
-    <form action="../controlers/controlerProduto.php" method="post" class="form">
+    <form action="../controlers/controlerProduto.php" method="post" class="form" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome">
@@ -45,6 +45,10 @@ $fabricantes = $_SESSION['fabricantes'];
                 }
                 ?>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="imagem">Foto: </label>
+            <input type="file" name="imagem" id="imagem">
         </div>
 
         <input type="hidden" name="opcao" value="1">

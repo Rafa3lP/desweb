@@ -23,6 +23,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `desweb`
 --
+CREATE DATABASE IF NOT EXISTS `desweb`;
+USE `desweb`;
 
 -- --------------------------------------------------------
 
@@ -97,13 +99,6 @@ CREATE TABLE `itens` (
   `valorTotal` float NOT NULL,
   `id_venda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `itens`
---
-
-INSERT INTO `itens` (`id_item`, `id_produto`, `quantidade`, `valorTotal`, `id_venda`) VALUES
-(1, 1, 1, 3000, 2);
 
 -- --------------------------------------------------------
 
@@ -191,6 +186,19 @@ ALTER TABLE `fabricantes`
 delete from `itens`;
 delete from `vendas`;
 --
+-- AUTO_INCREMENT de tabela `vendas`
+--
+
+--
+-- Índices para tabela `vendas`
+--
+ALTER TABLE `vendas`
+  ADD PRIMARY KEY (`id_venda`);
+
+ALTER TABLE `vendas`
+  MODIFY `id_venda` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Índices para tabela `itens`
 --
 ALTER TABLE `itens`
@@ -210,18 +218,6 @@ ALTER TABLE `produtos`
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
---
--- Índices para tabela `vendas`
---
-ALTER TABLE `vendas`
-  ADD PRIMARY KEY (`id_venda`);
-  
-  --
--- AUTO_INCREMENT de tabela `vendas`
---
-ALTER TABLE `vendas`
-  MODIFY `id_venda` int(11) NOT NULL AUTO_INCREMENT;
-
 ALTER TABLE `itens`
 ADD CONSTRAINT `fk_itemVenda`
     FOREIGN KEY (`id_venda`)
@@ -237,8 +233,6 @@ ADD CONSTRAINT `fk_itemVenda`
 --
 ALTER TABLE `produtos`
   MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
-
-
 
 --
 -- Restrições para despejos de tabelas

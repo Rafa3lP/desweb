@@ -5,7 +5,7 @@ class Conexao
       private $servidor_mysql = 'localhost';
       private $nome_banco = 'desweb';
       private $usuario = 'root';
-      private $senha = ''; 
+      private $senha = '835241'; 
       private $con;
 
       public function getConexao()
