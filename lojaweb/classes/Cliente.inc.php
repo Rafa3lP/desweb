@@ -33,6 +33,7 @@ class Cliente
         $this->email = $email;
         $this->senha = $senha;
         $this->rg = $rg;
+        $this->perfil = $perfil;
     }
 
     //GETTERS
