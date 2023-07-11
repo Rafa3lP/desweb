@@ -52,6 +52,13 @@ $cliente = $_SESSION['cliente'];
             <label for="rg">RG: </label>
             <input type="text" name="rg" id="rg" maxlength="13" value="<?= $cliente->getRg() ?>">
         </div>
+        <div class="form-group">
+            <label for="perfil">Perfil: </label>
+            <select name="perfil" id="perfil">
+                    <option value="0" <?= $cliente->getPerfil() == 0 ? "selected" : "" ?>>Professor</option>
+                    <option value="1">Normal</option>
+            </select>
+        </div>
 
         <input type="hidden" name="opcao" value="5">
 

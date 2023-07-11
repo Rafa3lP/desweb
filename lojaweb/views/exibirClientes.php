@@ -29,6 +29,7 @@ require_once '../utils/utils.inc.php';
                     <th>EMAIL</th>
                     <th>SENHA</th>
                     <th>RG</th>
+                    <th>Perfil</th>
                     <th>OPERAÇÃO</th>
                 </tr>
                 <?php
@@ -46,6 +47,7 @@ require_once '../utils/utils.inc.php';
                         <td><?= $cliente->getEmail() ?></td>
                         <td><?= $cliente->getSenha() ?></td>
                         <td><?= $cliente->getRg() ?></td>
+                        <td><?= $cliente->getPerfil() == 0 ? "Professor" : "Normal" ?></td>
                         <td>
                             <a href="../controlers/controlerCliente.php?opcao=4&cpf=<?= $cliente->getCpf() ?>" class="btn m-1 bg-blue">Alterar</a>
                             <a href="../controlers/controlerCliente.php?opcao=3&cpf=<?= $cliente->getCpf() ?>" class="btn m-1">Excluir</a>

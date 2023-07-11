@@ -16,9 +16,10 @@ if($opcao == 1){ // INSERIR
     $email = $_REQUEST["email"];
     $senha = $_REQUEST["senha"];
     $rg = $_REQUEST["rg"];
+    $perfil = $_REQUEST["perfil"];
 
     $cliente = new Cliente();
-    $cliente->setCliente($cpf, $nome, $logradouro, $cidade, $estado, $cep, $telefone, $data_nascimento, $email, $senha, $rg);
+    $cliente->setCliente($cpf, $nome, $logradouro, $cidade, $estado, $cep, $telefone, $data_nascimento, $email, $senha, $rg, $perfil);
 
     $clienteDAO = new ClienteDAO();
     $clienteDAO->incluirCliente($cliente);
@@ -64,9 +65,10 @@ if($opcao == 1){ // INSERIR
     $email = $_REQUEST["email"];
     $senha = $_REQUEST["senha"];
     $rg = $_REQUEST["rg"];
+    $perfil = $_REQUEST["perfil"];
 
     $cliente = new Cliente();
-    $cliente->setCliente($cpf, $nome, $logradouro, $cidade, $estado, $cep, $telefone, $data_nascimento, $email, $senha, $rg);
+    $cliente->setCliente($cpf, $nome, $logradouro, $cidade, $estado, $cep, $telefone, $data_nascimento, $email, $senha, $rg, $perfil);
 
     $clienteDAO = new clienteDAO();
     $clienteDAO->alterarCliente($cliente);

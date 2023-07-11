@@ -28,6 +28,16 @@ class VendaDAO {
         $id = $this->getIdUltimaVenda();
 
         $this->incluirItens($id, $carrinho);
+
+        $this->baixaEstoque($carrinho);
+    }
+
+    private function baixaEstoque($carrinho) {
+        foreach ($carrinho as $item) {
+            $sql = $this->conn->prepare("UPDATE produtos SET estoque = (SELECT estoque FROM produtos WHERE produto_id = :prod) - 1 WHERE produto_id = :prod");
+            $sql->bindValue(":prod", $item->getProduto()->getId());
+            $sql->execute();
+        }
     }
 
     private function incluirItens($idVenda, $carrinho){

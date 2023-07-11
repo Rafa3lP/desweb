@@ -14,8 +14,8 @@ class ClienteDAO
 
     public function incluirCliente(Cliente $cliente)
     {
-        $sql = $this->conn->prepare("INSERT INTO clientes (cpf, nome, logradouro, cidade, estado, cep, telefone, data_nascimento, email, senha, rg) 
-        VALUES (:cpf, :nome, :logradouro, :cidade, :estado, :cep, :telefone, :data_nascimento, :email, :senha, :rg)");
+        $sql = $this->conn->prepare("INSERT INTO clientes (cpf, nome, logradouro, cidade, estado, cep, telefone, data_nascimento, email, senha, rg, perfil) 
+        VALUES (:cpf, :nome, :logradouro, :cidade, :estado, :cep, :telefone, :data_nascimento, :email, :senha, :rg, :perfil)");
 
         $sql->bindValue(':cpf', $cliente->getCpf());
         $sql->bindValue(':nome', $cliente->getNome());
@@ -28,6 +28,7 @@ class ClienteDAO
         $sql->bindValue(':email', $cliente->getEmail());
         $sql->bindValue(':senha', $cliente->getSenha());
         $sql->bindValue(':rg', $cliente->getRg());
+        $sql->bindValue(':perfil', $cliente->getPerfil());
         $sql->execute();
     }
 
@@ -44,7 +45,8 @@ class ClienteDAO
         data_nascimento=:data_nascimento,
         email=:email,
         senha=:senha,
-        rg=:rg  
+        rg=:rg 
+        perfil=:perfil 
         WHERE cpf = :cpf"
         );
 
@@ -59,6 +61,8 @@ class ClienteDAO
         $sql->bindValue(':senha', $cliente->getSenha());
         $sql->bindValue(':rg', $cliente->getRg());
         $sql->bindValue(':cpf', $cliente->getCpf());
+        $sql->bindValue(':perfil', $cliente->getPerfil());
+
         
         $sql->execute();
     }
@@ -128,6 +132,7 @@ class ClienteDAO
         $cliente->setEmail($row->email);
         $cliente->setSenha($row->senha);
         $cliente->setRg($row->rg);
+        $cliente->setPerfil($row->perfil);
 
         return $cliente;
     }

@@ -13,12 +13,14 @@ class Cliente
     private $senha;
     private $rg;
 
+    private $perfil;
+
     function __construct()
     {
 
     }
 
-    function setCliente($cpf, $nome, $logradouro, $cidade, $estado, $cep, $telefone, $data_nascimento, $email, $senha, $rg)
+    function setCliente($cpf, $nome, $logradouro, $cidade, $estado, $cep, $telefone, $data_nascimento, $email, $senha, $rg, $perfil)
     {
         $this->cpf = $cpf;
         $this->nome = $nome;
@@ -82,6 +84,10 @@ class Cliente
         return $this->logradouro . ", " . $this->cidade . " - " . $this->estado . ", CEP: " . $this->cep;
     }
 
+    public function getPerfil(){
+        return $this->perfil;
+    }
+
     //SETTERS
     public function setCpf($cpf){
         $this->cpf = $cpf;
@@ -125,6 +131,10 @@ class Cliente
 
     public function setRg($rg){
         $this->rg = $rg;
+    }
+
+    public function setPerfil($perfil){
+        $this->perfil = $perfil;
     }
 
 }

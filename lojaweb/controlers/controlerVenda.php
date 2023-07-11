@@ -15,6 +15,11 @@ if($opcao == 1) { // INCLUIR VENDA
     $total = $_SESSION["total"];
     $carrinho = $_SESSION["carrinho"];
 
+    if($cliente->getPerfil() == 0) {
+        $total = $total - (30/100 * $total);
+        $_SESSION["total"] = $total;
+    }
+
     $venda = new Venda($cliente->getCpf(), $total);
 
     $vendaDAO = new VendaDAO();
@@ -28,6 +33,7 @@ if($opcao == 1) { // INCLUIR VENDA
     }
 
     unset($_SESSION["carrinho"]);
+    unset($_SESSION["cupom"]);
 }
 
 ?>

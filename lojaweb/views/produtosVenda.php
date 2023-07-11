@@ -58,9 +58,21 @@ require_once 'includes/cabecalho.inc';
                             </font>
                         </b></td>
                     <td colspan="2">
-                        <a href='../controlers/controlerCarrinho.php?opcao=1&id=<?= $produto->getId() ?>'>
-                            <img src='imagens/botao_comprar2.png' border='0'>
-                        </a>
+                        <?php
+                        if($produto->getEstoque() <= 5) {
+                            ?>
+                            <font face="Verdana" size="3" color="red">
+                                Produto indisponível!
+                            </font>
+                            <?php
+                        } else {
+                            ?>
+                            <a href='../controlers/controlerCarrinho.php?opcao=1&id=<?= $produto->getId() ?>'>
+                                <img src='imagens/botao_comprar2.png' border='0'>
+                            </a>
+                            <?php
+                        }
+                        ?>
                     </td>
                 </tr>
             </table>

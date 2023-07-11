@@ -5,6 +5,16 @@ require_once "../classes/ItemVenda.inc.php"
     ?>
 
 <center>
+    <?php
+    if (isset($_REQUEST["erro"]) && $_REQUEST["erro"] == 1) {
+        ?>
+        <font face="Verdana" size="3" color="red">
+            Cupom inválido!
+        </font>
+        <?php
+    }
+    ?>
+
     <h2>
         <font face="Arial">Carrinho de Compra</font>
     </h2>
@@ -110,24 +120,43 @@ require_once "../classes/ItemVenda.inc.php"
                 </td>
             </tr>
         </table>
-        <p>
-            <hr width="50%">
-            <img src="imagens/espaco.png" border="0">
-        <p>
-            <a href="../controlers/controlerProduto.php?opcao=6"><img src="imagens/botao_continuar_comprando.png"
-                    border="0"></a>
-        <img src="imagens/espaco.png" border="0" />
-        <a href="../controlers/controlerCarrinho.php?opcao=5&total=<?=$total?>"><img src="imagens/finalizarCompra.png" border="0"></a>
-        <?php
+        <form action="../controlers/controlerCarrinho.php">
+            <label for="cupom">Cupom de desconto: </label>
+            <input type="text" name="cupom" id="cupom">
+            <input type="hidden" name="opcao" value="6">
+            <input type="submit" value="Aplicar">
+        </form>
+            <?php
+            if (isset($_REQUEST["status"]) && $_REQUEST["status"] == 2) {
+                ?>
+                <font face="Verdana" size="3" color="green">
+                    Cupom ativado! Clique em finalizar compra para ver o novo valor
+                </font>
+                <?php
+            }
+            ?>
+            <p>
+                <hr width="50%">
+                <img src="imagens/espaco.png" border="0">
+            <p>
+                <a href="../controlers/controlerProduto.php?opcao=6"><img src="imagens/botao_continuar_comprando.png"
+                        border="0"></a>
+                <img src="imagens/espaco.png" border="0" />
+                <a href="../controlers/controlerCarrinho.php?opcao=5&total=<?= $total ?>"><img
+                        src="imagens/finalizarCompra.png" border="0"></a>
+
+            <form action="../controlers/controlerCliente.php" method="post" class="form">
+
+                <?php
     } else {
         ?>
-        <p class="m-1">
-            <font face="Arial">Não há produtos no carrinho de compras</font>
-        </p>
-        <p class="m-1">
-            <a href="../controlers/controlerProduto.php?opcao=6">Visualizar produtos</a>
-        </p>
-        <?php
+                <p class="m-1">
+                    <font face="Arial">Não há produtos no carrinho de compras</font>
+                </p>
+                <p class="m-1">
+                    <a href="../controlers/controlerProduto.php?opcao=6">Visualizar produtos</a>
+                </p>
+                <?php
     }
     ?>
 </center>

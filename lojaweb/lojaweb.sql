@@ -40,16 +40,33 @@ CREATE TABLE `clientes` (
   `data_nascimento` date NOT NULL,
   `email` varchar(20) NOT NULL,
   `senha` varchar(12) NOT NULL,
-  `rg` varchar(13) NOT NULL
+  `rg` varchar(13) NOT NULL,
+  `perfil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `clientes`
 --
 
-INSERT INTO `clientes` (`cpf`, `nome`, `logradouro`, `cidade`, `estado`, `cep`, `telefone`, `data_nascimento`, `email`, `senha`, `rg`) VALUES
-('111111', 'GIULIANO PRADO DE MORAIS GIGLIO', 'Rua A', 'Alegre', 'ES', '4445577', '99978-0001', '2008-01-01', 'giu@email', '1234', 'M-78890'),
-('8888', 'Paulo', 'rua 1', 'alegre', 'mg', '888', '3552-0002', '1998-02-11', 'p@', '111', '8888xxxx');
+INSERT INTO `clientes` (`cpf`, `nome`, `logradouro`, `cidade`, `estado`, `cep`, `telefone`, `data_nascimento`, `email`, `senha`, `rg`, `perfil`) VALUES
+('111111', 'GIULIANO PRADO DE MORAIS GIGLIO', 'Rua A', 'Alegre', 'ES', '4445577', '99978-0001', '2008-01-01', 'giu@email', '1234', 'M-78890', 0),
+('8888', 'Paulo', 'rua 1', 'alegre', 'mg', '888', '3552-0002', '1998-02-11', 'p@', '111', '8888xxxx', 0);
+
+CREATE TABLE `cupons` (
+  `id` int(11) NOT NULL,
+  `codigo` varchar(50) DEFAULT NULL,
+  `valor_desconto` int(11) DEFAULT NULL,
+  `data_validade` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `cupons`
+--
+
+INSERT INTO `cupons` (`id`, `codigo`, `valor_desconto`, `data_validade`) VALUES
+(1, 'QUERO15', 15, '2023-07-15'),
+(2, 'QUERO30', 30, '2023-07-10');
+
 
 -- --------------------------------------------------------
 
@@ -174,6 +191,11 @@ CREATE TABLE `vendas` (
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`cpf`);
 
+-- Índices para tabela `cupons`
+--
+ALTER TABLE `cupons`
+  ADD PRIMARY KEY (`id`);
+
 --
 -- Índices para tabela `fabricantes`
 --
@@ -221,6 +243,12 @@ ADD CONSTRAINT `fk_itemVenda`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `cupons`
+--
+ALTER TABLE `cupons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
