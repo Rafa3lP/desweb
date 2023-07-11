@@ -45,7 +45,7 @@ class ClienteDAO
         data_nascimento=:data_nascimento,
         email=:email,
         senha=:senha,
-        rg=:rg 
+        rg=:rg,
         perfil=:perfil 
         WHERE cpf = :cpf"
         );

@@ -56,7 +56,7 @@ $cliente = $_SESSION['cliente'];
             <label for="perfil">Perfil: </label>
             <select name="perfil" id="perfil">
                     <option value="0" <?= $cliente->getPerfil() == 0 ? "selected" : "" ?>>Professor</option>
-                    <option value="1">Normal</option>
+                    <option value="1" <?= $cliente->getPerfil() == 1 ? "selected" : "" ?>>Normal</option>
             </select>
         </div>
 
